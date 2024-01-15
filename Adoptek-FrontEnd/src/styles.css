@@ -2,3 +2,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities; 
+
+  @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@500&family=Fira+Code&family=Kalnia&family=Montserrat:wght@300&family=Quicksand:wght@600&family=Roboto:wght@100&family=Rubik:wght@500&display=swap');
+
+
+  *{
+    font-family: 'Cairo', sans-serif;
+    font-family: 'Fira Code', monospace;
+    font-family: 'Kalnia', serif;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Quicksand', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Rubik', sans-serif;  }

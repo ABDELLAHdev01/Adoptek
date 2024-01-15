@@ -1,0 +1,44 @@
+<div class="mt-12 flex bg-white rounded-lg shadow-lg overflow-hidden mx-auto max-w-sm lg:max-w-4xl">
+    <div class="hidden lg:block lg:w-1/2 bg-cover" style="background-image:url('../../../assets/images/dogp2.jpg')"></div>
+    <div class="w-full p-8 lg:w-1/2">
+        <form >
+
+        <div class="mt-4 flex items-center justify-between">
+          
+        </div>
+        <div class="mt-4">
+            <label style="color: #391B10;" class="block  text-sm font-bold mb-2">First Name</label>
+            <input formControlName="firstName" class="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="email">
+        </div>
+        <div class="mt-4">
+            <label style="color: #391B10;" class="block text-sm font-bold mb-2">Last Name</label>
+            <input formControlName="lastName" class="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="email">
+        </div>
+        <div class="mt-4">
+            <label style="color: #391B10;" class="block  text-sm font-bold mb-2">Email Address</label>
+            <input formControlName="email" class="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="email">
+        </div>
+        <div class="mt-4">
+            <div class="flex justify-between">
+                <label style="color: #391B10;" class="block  text-sm font-bold mb-2">Password</label>
+            </div>
+            <input formControlName="password" class="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="password">
+        </div>
+        <!-- <div class="mt-4">
+            <div class="flex justify-between">
+                <label class="block text-gray-700 text-sm font-bold mb-2">Repate Password</label>
+            </div>
+            <input class="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="password">
+        </div> -->
+        <div class="mt-8">
+            <button style="background-color: #391B10;" type="submit" class=" text-white font-bold py-2 px-4 w-full rounded hover:bg-gray-600">Sign up</button>
+        </div>
+        <div class="mt-4 flex items-center justify-between">
+            <span class="border-b w-1/5 md:w-1/4"></span>
+            <a routerLink="/auth/login" class="text-xs text-gray-500 uppercase">or log in</a>
+            <span class="border-b w-1/5 md:w-1/4"></span>
+        </div>
+    </form>
+
+    </div>
+</div>
