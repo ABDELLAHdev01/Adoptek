@@ -13,4 +13,14 @@
     font-family: 'Montserrat', sans-serif;
     font-family: 'Quicksand', sans-serif;
     font-family: 'Roboto', sans-serif;
-    font-family: 'Rubik', sans-serif;  }
+    font-family: 'Rubik', sans-serif;  
+
+    /* show all with animation */
+
+     animation: fadeIn ease 5s;
+    -webkit-animation: fadeIn ease 5s;
+    -moz-animation: fadeIn ease 5s;
+    -o-animation: fadeIn ease 5s;
+    -ms-animation: fadeIn ease 5s; 
+
+}
