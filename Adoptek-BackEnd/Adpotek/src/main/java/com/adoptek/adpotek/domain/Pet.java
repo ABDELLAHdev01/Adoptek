@@ -31,5 +31,8 @@ public class Pet {
     private String aggressionLevel;
     private String color;
 
+    @ManyToOne
+    private User Owner;
+
 
 }
