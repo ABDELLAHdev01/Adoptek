@@ -1,6 +1,6 @@
-package com.adoptek.adpotek.domain;
+package com.example.adoptekspring.domain;
 
-import com.adoptek.adpotek.domain.enm.Role;
+import com.example.adoptekspring.domain.enm.Role;
 import jakarta.persistence.*;
 import lombok.*;
 
