@@ -10,6 +10,7 @@ import { HomePageComponent } from './layout/home-page/home-page.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { JumbotronComponent } from './components/jumbotron/jumbotron.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { PetsThreeCardComponent } from './components/pets-three-card/pets-three-card.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
     HomePageComponent,
     NavbarComponent,
     JumbotronComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    PetsThreeCardComponent
   ],
   imports: [
     BrowserModule,

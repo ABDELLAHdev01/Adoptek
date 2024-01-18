@@ -1,7 +1,10 @@
-<div class="p-6">
+<div class="centerit p-6">
    <div></div> 
-<form class="p-28">
-    <p id="titlee" class="text-white text-5xl p-3 drop-shadow-lg	" for="" >Find your new best friend    </p>
+<form class="p-28 searchbarmobile">
+
+    <p id="titlee" class="text-white effecting text-5xl p-3 drop-shadow-lg	" for="" >Find your new best friend    </p>
+    <p id="titlee2" class="text-white effecting text-5xl p-3 drop-shadow-lg	" for="" >Find your new friend</p>
+
     <div class="flex drop-shadow-lg	">
         <label for="search-dropdown" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Your Email</label>
         <button id="dropdown-button" data-dropdown-toggle="dropdown" class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-s-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600" type="button">All categories <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
@@ -23,7 +26,7 @@
             </li>
             </ul>
         </div>
-        <div class="relative w-full">
+        <div class="relative w-full ">
             <input type="search" id="search-dropdown" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-e-lg border-s-gray-50 border-s-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-s-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" placeholder="Search Mockups, Logos, Design Templates..." required>
             <button style="background-color: #A54B0A;" type="submit" class="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-white rounded-e-lg border border-amber-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -35,7 +38,7 @@
     </div>
 </form>
 
-
+<!-- 
 
 <div class="cards">
     <section class="text-gray-600 body-font">
@@ -64,17 +67,55 @@
           </div>
         </div>
       </section>
-</div>
+</div> -->
 
 </div>
 
 <style>
+  .effecting{
+    /* glow text but with brown coler */
+     text-shadow: 0 0 10px #6c2f03, 0 0 20px #6c2f03, 0 0 30px #A54B0A, 0 0 40px #A54B0A, 0 0 50px #A54B0A, 0 0 60px #A54B0A, 0 0 70px #A54B0A; 
+  }
+  #titlee2{
+    display: none;
+  }
     .cards{
         /* make cards down */
         margin-bottom: 10rem;
         
     }
+    .centerit{
+        /* center the form  int the middle of the div */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        /* also in the middle it vertical */
+        height: 100vh;
 
+
+    }
+    /* i wanna hide  #dropdown-button when screen its mobile or tablet */
+    @media (max-width: 768px) {
+        #dropdown-button{
+            display: none;
+        }
+        #titlee{
+            display: none;
+        }
+        #titlee2{
+            display: block;
+        }
+        /* i wanna change the value of h1  */
+        
+        #search-dropdown{
+            margin-top: 0;
+            /* resize it with nice size for mobile */
+            width: 300px
+
+        }
+        
+    }
  
 </style>
 
