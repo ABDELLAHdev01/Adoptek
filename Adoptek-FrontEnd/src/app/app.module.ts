@@ -12,6 +12,9 @@ import { JumbotronComponent } from './components/jumbotron/jumbotron.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { PetsThreeCardComponent } from './components/pets-three-card/pets-three-card.component';
 import { BeforeFooterComponent } from './components/before-footer/before-footer.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { StorySectionComponent } from './components/story-section/story-section.component';
+import { StatisticsComponent } from './components/statistics/statistics.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { BeforeFooterComponent } from './components/before-footer/before-footer.
     JumbotronComponent,
     SearchBarComponent,
     PetsThreeCardComponent,
-    BeforeFooterComponent
+    BeforeFooterComponent,
+    FooterComponent,
+    StorySectionComponent,
+    StatisticsComponent
   ],
   imports: [
     BrowserModule,
