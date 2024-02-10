@@ -15,6 +15,7 @@ import { BeforeFooterComponent } from './components/before-footer/before-footer.
 import { FooterComponent } from './components/footer/footer.component';
 import { StorySectionComponent } from './components/story-section/story-section.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
+import { ArticelsCardsComponent } from './components/articels-cards/articels-cards.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { StatisticsComponent } from './components/statistics/statistics.componen
     BeforeFooterComponent,
     FooterComponent,
     StorySectionComponent,
-    StatisticsComponent
+    StatisticsComponent,
+    ArticelsCardsComponent,
   ],
   imports: [
     BrowserModule,
