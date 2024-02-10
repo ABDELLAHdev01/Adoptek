@@ -16,6 +16,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { StorySectionComponent } from './components/story-section/story-section.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { ArticelsCardsComponent } from './components/articels-cards/articels-cards.component';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { ArticelsCardsComponent } from './components/articels-cards/articels-car
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.forRoot({}, {}),
+    EffectsModule.forRoot([])
   ],
   providers: [],
   bootstrap: [AppComponent]
