@@ -11,6 +11,5 @@ export interface UserEntity {
     zipCode: string;
     status: string;
     password: string;
-    token?: string;
     
 }
