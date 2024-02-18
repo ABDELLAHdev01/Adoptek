@@ -60,4 +60,10 @@ public class AuthenticationService {
                 .build();
 
     }
+
+    public Boolean checkIfTokenIsValid(String token) {
+        var email = jwtService.extractUsername(token);
+        User user = userRepository.findByEmailNativeQuery(email).orElseThrow();
+        return jwtService.isTokenValid(token , user );
+    }
 }
