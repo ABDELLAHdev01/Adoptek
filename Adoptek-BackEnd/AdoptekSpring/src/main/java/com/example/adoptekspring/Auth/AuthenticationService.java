@@ -3,12 +3,14 @@ package com.example.adoptekspring.Auth;
 
 import com.example.adoptekspring.config.JwtService;
 import com.example.adoptekspring.domain.User;
+import com.example.adoptekspring.domain.enm.RoleEnum;
 import com.example.adoptekspring.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
 
 
 @Service
@@ -22,11 +24,20 @@ public class AuthenticationService {
         if (!userRepository.findByEmail(registerRequest.getEmail()).isEmpty()) {
             throw new RuntimeException("Email already exists");
         }
+        var role = RoleEnum.Admin;
         var user = User.builder()
                 .firstName(registerRequest.getFirstName())
                 .lastName(registerRequest.getLastName())
                 .email(registerRequest.getEmail())
-
+                .phoneNumber(registerRequest.getPhoneNumber())
+                .address(registerRequest.getAddress())
+                .image(registerRequest.getImage())
+                .roleEnum(role)
+                .city(registerRequest.getCity())
+                .country(registerRequest.getCountry())
+                .state(registerRequest.getState())
+                .zipCode(registerRequest.getZipCode())
+                .status(registerRequest.getStatus())
                 .password(passwordEncoder.encode(registerRequest.getPassword()))
                 .build();
 
@@ -35,10 +46,7 @@ public class AuthenticationService {
         userRepository.save(user);
         var JwtToken = jwtService.generateToken(user);
         return AuthenticationResponse.builder()
-                .firstName(registerRequest.getFirstName())
-                .lastName(registerRequest.getLastName())
-                .email(registerRequest.getEmail())
-                .token(JwtToken).build();
+                .accessToken(JwtToken).build();
     }
 
     public AuthenticationResponse authenticate(AuthenticateRequest request) {
@@ -47,7 +55,9 @@ public class AuthenticationService {
         );
         var user = userRepository.findByEmailNativeQuery(request.getEmail()).orElseThrow();
         var JwtToken = jwtService.generateToken(user);
-        return AuthenticationResponse.builder().token(JwtToken).build();
+        return AuthenticationResponse.builder()
+                .accessToken(JwtToken)
+                .build();
 
     }
 }

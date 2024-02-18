@@ -1,6 +1,6 @@
 package com.example.adoptekspring.domain.enm;
 
-public enum Role {
+public enum RoleEnum {
     Admin,
     User
 }
