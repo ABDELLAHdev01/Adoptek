@@ -1,0 +1,155 @@
+<section
+class="bg-center dd  bg-no-repeat  bg-[url('https://images.pexels.com/photos/825949/pexels-photo-825949.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')] bg-yellow-500 bg-blend-multiply ">
+<div class="mx-auto max-w-screen-xl text-center ">
+
+
+    <div class="centerit ">
+        <div></div> 
+     
+        <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+            <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+                <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                    ADD YOUR PET <i class="fa-solid fa-paw"></i>
+                </h1>
+                <form class="space-y-4 md:space-y-6" >
+                    <div class="no1" *ngIf="count == 0">
+
+                        <div>
+                            <label for="text" class="flex mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
+                            <input type="text" name="text" id="text" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Rex" required="">
+                        </div>
+                        <div>
+                            <label for="category" class="flex mb-2 text-sm font-medium text-gray-900 dark:text-white">Category</label>
+                            <select name="category" id="category" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
+                                <option value="dog">Dog</option>
+                                <option value="cat">Cat</option>
+                                <option value="bird">Bird</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="description" class="flex mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
+                            <textarea name="description" id="description" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter description" required=""></textarea>
+                        </div>
+                        <div>
+                            <label for="age" class="flex mb-2 text-sm font-medium text-gray-900 dark:text-white">Age</label>
+                            <input type="number" name="age" id="age" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter age" required="">
+                        </div>
+                    </div>
+                    <div class="no2" *ngIf="count == 1">
+                        <div>
+                            <label for="breed" class="flex mb-2 text-sm font-medium text-gray-900 dark:text-white">Breed</label>
+                            <input type="text" name="breed" id="breed" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter breed" required="">
+                        </div>
+                        <div>
+                            <label for="height" class="flex mb-2 text-sm font-medium text-gray-900 dark:text-white">Height</label>
+                            <input type="number" name="height" id="height" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter height" required="">
+                        </div>
+                        <div>
+                            <label for="weight" class="flex mb-2 text-sm font-medium text-gray-900 dark:text-white">Weight</label>
+                            <input type="number" name="weight" id="weight" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter weight" required="">
+                        </div>
+                        <div>
+                            <label for="gender" class="flex mb-2 text-sm font-medium text-gray-900 dark:text-white">Gender</label>
+                            <select name="gender" id="gender" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                        </div>
+                      
+                    </div>
+
+                    <div class="no3" *ngIf="count == 2">
+                        <div>
+                            <label for="goodWith" class="flex mb-2 text-sm font-medium text-gray-900 dark:text-white">Good With</label>
+                            <input type="text" name="goodWith" id="goodWith" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter good with" required="">
+                        </div>
+                        <div>
+                            <label for="image" class="flex mb-2 text-sm font-medium text-gray-900 dark:text-white">Image</label>
+                            <input type="file" name="image" id="image" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
+                        </div>
+                        <div>
+                            <label for="location" class="flex mb-2 text-sm font-medium text-gray-900 dark:text-white">Location</label>
+                            <input type="text" name="location" id="location" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter location" required="">
+                        </div>
+                        <div>
+                            <label for="health" class="flex mb-2 text-sm font-medium text-gray-900 dark:text-white">Health</label>
+                            <input type="text" name="health" id="health" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter health" required="">
+                        </div>
+                        <div>
+                            <label for="aggressionLevel" class="flex mb-2 text-sm font-medium text-gray-900 dark:text-white">Aggression Level</label>
+                            <input type="text" name="aggressionLevel" id="aggressionLevel" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter aggression level" required="">
+                        </div>
+                        <div>
+                            <label for="color" class="flex mb-2 text-sm font-medium text-gray-900 dark:text-white">Color</label>
+                            <input type="text" name="color" id="color" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter color" required="">
+                        </div>
+                    </div>
+                        
+                    <div>
+                        <!-- next button -->
+                        <button *ngIf="count != 2" (click)="addone()" type="button" class="bg-yellow-500 text-white font-bold py-2 px-4 w-full rounded hover:bg-primary-600" id="next">Next</button>
+                        <button *ngIf="count == 2" type="submit" class="bg-yellow-500 text-white font-bold py-2 px-4 w-full rounded hover:bg-primary-600">Add Pet</button>
+                    </div>
+                        
+                    </form>
+            </div>
+
+    
+
+     </div>
+     
+     
+     
+       
+     </div>
+     
+     <style>
+       .effecting{
+         /* glow text but with brown coler */
+          text-shadow: 0 0 10px #6c2f03, 0 0 20px #6c2f03, 0 0 30px #A54B0A, 0 0 40px #A54B0A, 0 0 50px #A54B0A, 0 0 60px #A54B0A, 0 0 70px #A54B0A; 
+       }
+       #titlee2{
+         display: none;
+       }
+         .cards{
+             /* make cards down */
+             margin-bottom: 10rem;
+             
+         }
+         .centerit{
+             /* center the form  int the middle of the div */
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             flex-direction: column;
+             /* also in the middle it vertical */
+             height: 120vh;
+     
+     
+         }
+         /* i wanna hide  #dropdown-button when screen its mobile or tablet */
+        
+      
+     </style>
+     
+     
+   
+
+</div>
+
+</section>
+
+<style>
+.dd{
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-blend-mode: multiply;
+    /* add some blur just to image */
+    
+}
+
+</style>

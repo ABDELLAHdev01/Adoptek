@@ -6,6 +6,8 @@ import { RegisterFormComponent } from './components/register-form/register-form.
 import { HomePageComponent } from './layout/home-page/home-page.component';
 import { SearchPetComponent } from './layout/search-pet/search-pet.component';
 import { AnimalPageComponent } from './layout/animal-page/animal-page.component';
+import { QuizComponent } from './layout/quiz/quiz.component';
+import { PutPetComponent } from './layout/put-pet/put-pet.component';
 
 const routes: Routes = [
   {
@@ -40,6 +42,18 @@ const routes: Routes = [
   {
     path: "animal",
     component: AnimalPageComponent
+  },
+  {
+    path: "quiz",
+    component: QuizComponent
+  },
+  {
+    path: "putpet",
+    component: PutPetComponent
+  },
+  {
+    path: "**",
+    redirectTo: ""
   }
 ];
 

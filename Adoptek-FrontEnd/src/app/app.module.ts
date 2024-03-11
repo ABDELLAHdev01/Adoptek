@@ -32,6 +32,9 @@ import { GalleryComponent } from './components/gallery/gallery.component';
 import { userReducer } from './state/user/user-reducer';
 import { UserEffect } from './state/user/user-effect';
 import { AboutAnimalComponent } from './components/about-animal/about-animal.component';
+import { QuizComponent } from './layout/quiz/quiz.component';
+import { PutPetComponent } from './layout/put-pet/put-pet.component';
+import { BodyImgComponent } from './components/body-img/body-img.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +61,9 @@ import { AboutAnimalComponent } from './components/about-animal/about-animal.com
     AnimalPageComponent,
     GalleryComponent,
     AboutAnimalComponent,
+    QuizComponent,
+    PutPetComponent,
+    BodyImgComponent,
   ],
   imports: [
     BrowserModule,
