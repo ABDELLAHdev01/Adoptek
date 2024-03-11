@@ -24,7 +24,7 @@ public class AuthenticationService {
         if (!userRepository.findByEmail(registerRequest.getEmail()).isEmpty()) {
             throw new RuntimeException("Email already exists");
         }
-        var role = RoleEnum.Admin;
+        var role = RoleEnum.User;
         var user = User.builder()
                 .firstName(registerRequest.getFirstName())
                 .lastName(registerRequest.getLastName())
@@ -33,11 +33,9 @@ public class AuthenticationService {
                 .address(registerRequest.getAddress())
                 .image(registerRequest.getImage())
                 .roleEnum(role)
+
                 .city(registerRequest.getCity())
                 .country(registerRequest.getCountry())
-                .state(registerRequest.getState())
-                .zipCode(registerRequest.getZipCode())
-                .status(registerRequest.getStatus())
                 .password(passwordEncoder.encode(registerRequest.getPassword()))
                 .build();
 

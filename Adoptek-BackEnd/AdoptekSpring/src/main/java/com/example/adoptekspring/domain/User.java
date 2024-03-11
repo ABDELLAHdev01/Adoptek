@@ -32,9 +32,6 @@ public class User implements UserDetails {
     private String country;
     private String address;
     private String city;
-    private String state;
-    private String zipCode;
-    private String status;
     @OneToMany
     private List<Pet> pets;
 
