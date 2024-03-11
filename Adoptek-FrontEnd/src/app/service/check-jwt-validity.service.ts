@@ -13,6 +13,6 @@ export class CheckJwtValidityService {
   constructor(private _http : HttpClient) {}
 
   checkJwtValidity(token:string) : Observable<boolean>{
-    return this._http.post<boolean>(this.URL_BASE+'check', token)
+    return this._http.get<boolean>(this.URL_BASE+`checkJwtValidity/${token}`)
   }
 }

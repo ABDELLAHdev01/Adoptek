@@ -1,0 +1,46 @@
+
+{
+    "fullName": "yassin 3omari",
+    "email": "ezgorfo@gggmail.com",
+    "password": "1234f5678",
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": "1234567890",
+    "image": "https://example.com/profile.jpg",
+    "country": "United States",
+    "address": "123 Main St",
+    "city": "New York",
+    "state": "NY",
+    "zipCode": "10001",
+    "status": "active"
+},
+{
+    "fullName": "hamid el9irch",
+    "email": "abcxyz@gggmail.com",
+    "password": "9876a5432",
+    "firstName": "Jane",
+    "lastName": "Smith",
+    "phoneNumber": "0987654321",
+    "image": "https://example.com/profile.jpg",
+    "country": "Canada",
+    "address": "456 Elm St",
+    "city": "Toronto",
+    "state": "ON",
+    "zipCode": "M1M 1M1",
+    "status": "active"
+},
+{
+    "fullName": "John Doe",
+    "email": "johndoe@example.com",
+    "password": "password123",
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": "1234567890",
+    "image": "https://example.com/profile.jpg",
+    "country": "United States",
+    "address": "123 Main St",
+    "city": "New York",
+    "state": "NY",
+    "zipCode": "10001",
+    "status": "active"
+}

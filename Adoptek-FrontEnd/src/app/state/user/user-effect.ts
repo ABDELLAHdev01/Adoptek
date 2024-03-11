@@ -34,7 +34,7 @@ export class UserEffect {
 
     registerSuccess$ = createEffect(() => this.actions$.pipe(
         ofType(UserActions.registerSuccess),
-        tap(() => this.router.navigate(['/dashboard']))
+        tap(() => this.router.navigate(['/putpet']))
     ), {dispatch: false});
 
     login$ = createEffect(() => this.actions$.pipe(
@@ -70,13 +70,13 @@ export class UserEffect {
 
     checkJwtValidityFailure$ = createEffect(() => this.actions$.pipe(
         ofType(UserActions.checkJwtValidityFailure),
-        tap(() => this.router.navigate(['/']))
+        tap(() => this.router.navigate(['/'])),
+        tap(() => this.localStorageService.clearLocalStorage()),
     ), {dispatch: false});
 
 
     checkJwtValiditySuccess$ = createEffect(() => this.actions$.pipe(
         ofType(UserActions.checkJwtValiditySuccess),
-        tap(() => this.router.navigate(['/dashboard']))
     ), {dispatch: false});
 
 }
