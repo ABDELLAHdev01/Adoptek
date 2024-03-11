@@ -1,2 +1,4 @@
-package com.example.adoptekspring.factory;public class generalSeeder {
+package com.example.adoptekspring.factory;
+
+public class GeneralSeeder {
 }

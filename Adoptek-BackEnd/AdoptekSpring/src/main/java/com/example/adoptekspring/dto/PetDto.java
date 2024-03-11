@@ -1,2 +1,4 @@
-package com.example.adoptekspring.dto;public class PetDto {
+package com.example.adoptekspring.dto;
+
+public class PetDto {
 }

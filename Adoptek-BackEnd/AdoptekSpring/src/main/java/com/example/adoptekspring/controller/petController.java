@@ -1,2 +1,4 @@
-package com.example.adoptekspring.controller;public class petController {
+package com.example.adoptekspring.controller;
+
+public class petController {
 }

@@ -1,2 +1,4 @@
-package com.example.adoptekspring.factory.seeder;public class petSeeder {
+package com.example.adoptekspring.factory.seeder;
+
+public class PetSeeder {
 }
