@@ -20,6 +20,18 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { HttpClientModule } from '@angular/common/http';
+import { SearchPetComponent } from './layout/search-pet/search-pet.component';
+import { PetcardsComponent } from './components/petcards/petcards.component';
+import { SortButtonComponent } from './components/sort-button/sort-button.component';
+import { SideBarComponent } from './components/side-bar/side-bar.component';
+import { SearchBarPetComponent } from './components/search-bar-pet/search-bar-pet.component';
+import { BannerComponent } from './components/banner/banner.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AnimalPageComponent } from './layout/animal-page/animal-page.component';
+import { GalleryComponent } from './components/gallery/gallery.component';
+import { userReducer } from './state/user/user-reducer';
+import { UserEffect } from './state/user/user-effect';
+import { AboutAnimalComponent } from './components/about-animal/about-animal.component';
 
 @NgModule({
   declarations: [
@@ -37,13 +49,23 @@ import { HttpClientModule } from '@angular/common/http';
     StorySectionComponent,
     StatisticsComponent,
     ArticelsCardsComponent,
+    SearchPetComponent,
+    PetcardsComponent,
+    SortButtonComponent,
+    SideBarComponent,
+    SearchBarPetComponent,
+    BannerComponent,
+    AnimalPageComponent,
+    GalleryComponent,
+    AboutAnimalComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    StoreModule.forRoot({}, {}),
-    EffectsModule.forRoot([]),
+    ReactiveFormsModule,
+    StoreModule.forRoot({user: userReducer}, {}),
+    EffectsModule.forRoot([UserEffect]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
   ],
   providers: [],

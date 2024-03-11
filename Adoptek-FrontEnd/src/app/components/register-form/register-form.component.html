@@ -19,6 +19,19 @@
             <input formControlName="email" class="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="email">
         </div>
         <div class="mt-4">
+            <label style="color: #391B10;" class="block text-sm font-bold mb-2">Phone Number</label>
+            <input formControlName="phoneNumber" class="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="number">
+        </div>
+        <div class="mt-4">
+            <label style="color: #391B10;" class="block text-sm font-bold mb-2">Country</label>
+            <select formControlName="country" class="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none">
+                <option value="">Select a country</option>
+                <option *ngFor="let item of country_list" value="{{item}}">{{item}}</option>
+              
+                <!-- Add more options here -->
+            </select>
+        </div>
+        <div class="mt-4">
             <div class="flex justify-between">
                 <label style="color: #391B10;" class="block  text-sm font-bold mb-2">Password</label>
             </div>

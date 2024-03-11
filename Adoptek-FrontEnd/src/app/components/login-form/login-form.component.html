@@ -1,18 +1,17 @@
-
 <div id="lo" class="mt-24 flex bg-white rounded-lg shadow-lg overflow-hidden mx-auto max-w-sm lg:max-w-4xl">
     <div class="hidden lg:block lg:w-1/2 bg-cover" style="background-image:url('../../../assets/images/dogp2.jpg')"></div>
     <div class="w-full p-8 lg:w-1/2">
-        <form >
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" >
         <div class="mt-4 flex items-center justify-between">
             <span class="border-b w-1/5 lg:w-1/4"></span>
             <a href="#" class="text-xs text-center text-gray-500 uppercase">or login with email</a>
             <span class="border-b w-1/5 lg:w-1/4"></span>
         </div>
-        <div class="mt-4">
+        <div class="mt-4" [formGroup]="loginForm">
             <label style="color: #391B10;" class="block  text-sm font-bold mb-2">Email Address</label>
             <input formControlName="email" class="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="email">
         </div>
-        <div class="mt-4">
+        <div class="mt-4" [formGroup]="loginForm">
             <div class="flex justify-between">
                 <label style="color: #391B10;" class="block text-sm font-bold mb-2">Password</label>
                 <a href="#" class="text-xs text-gray-500">Forget Password?</a>
@@ -30,5 +29,3 @@
         </form>
     </div>
 </div>
-
-

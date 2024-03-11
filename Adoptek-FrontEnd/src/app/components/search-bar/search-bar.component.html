@@ -1,6 +1,6 @@
 <div class="centerit ">
    <div></div> 
-<form class=" searchbarmobile">
+<form class=" searchbarmobile" [formGroup]="SearchForm" (ngSubmit)="onSubmite()">
 
     <p id="titlee" class="text-white effecting text-5xl p-3 drop-shadow-lg	" for="" >Find your new best friend    </p>
     <p id="titlee2" class="text-white effecting text-5xl p-3 drop-shadow-lg	" for="" >Find your new friend</p>

@@ -15,6 +15,8 @@ export class AuthenticatonService {
   constructor(private _http : HttpClient) {}
 
   login(UserEntity: UserEntityLogin) : Observable<AuthResponse>{
+    console.log("login");
+    
     return this._http.post<AuthResponse>(this.URL_BASE+'authenticate', UserEntity)
   }
 

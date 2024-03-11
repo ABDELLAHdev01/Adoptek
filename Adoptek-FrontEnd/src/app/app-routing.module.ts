@@ -4,6 +4,8 @@ import { AuthComponent } from './layout/auth/auth.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { RegisterFormComponent } from './components/register-form/register-form.component';
 import { HomePageComponent } from './layout/home-page/home-page.component';
+import { SearchPetComponent } from './layout/search-pet/search-pet.component';
+import { AnimalPageComponent } from './layout/animal-page/animal-page.component';
 
 const routes: Routes = [
   {
@@ -30,6 +32,14 @@ const routes: Routes = [
 
       }
     ]
+  },
+  {
+    path: "search",
+    component: SearchPetComponent
+  },
+  {
+    path: "animal",
+    component: AnimalPageComponent
   }
 ];
 
