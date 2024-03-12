@@ -4,7 +4,6 @@ export interface UserEntity {
     email: string;
     phoneNumber: string;
     address: string;
-    image: string;
     city: string;
     country: string;
     state: string;
