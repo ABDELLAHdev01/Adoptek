@@ -3,6 +3,8 @@ package com.example.adoptekspring.service.implementation;
 import com.example.adoptekspring.domain.Pet;
 import com.example.adoptekspring.repository.PetRepository;
 import com.example.adoptekspring.service.PetService;
+import org.springframework.security.core.context.SecurityContextHolder;
+import com.example.adoptekspring.domain.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,6 +20,7 @@ public class PetServiceImpl implements PetService {
 
     @Override
     public Pet createPet(Pet pet) {
+
         return petRepository.save(pet);
     }
 

@@ -31,7 +31,6 @@ public class AuthenticationService {
                 .email(registerRequest.getEmail())
                 .phoneNumber(registerRequest.getPhoneNumber())
                 .address(registerRequest.getAddress())
-                .image(registerRequest.getImage())
                 .roleEnum(role)
 
                 .city(registerRequest.getCity())

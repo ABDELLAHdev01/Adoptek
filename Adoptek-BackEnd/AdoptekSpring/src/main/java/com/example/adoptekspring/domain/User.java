@@ -25,7 +25,6 @@ public class User implements UserDetails {
     private RoleEnum roleEnum;
     private String firstName;
     private String lastName;
-    private String image;
     private String email;
     private String password;
     private String phoneNumber;
