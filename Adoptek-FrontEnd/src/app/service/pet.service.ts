@@ -15,4 +15,8 @@ export class PetService {
   addPet(pet:PetEntity):Observable<PetEntity> {
     return this._http.post<PetEntity>(this.URL_BASE+'addPet', pet)
   }
+
+  getPets():Observable<PetEntity[]> {
+    return this._http.get<PetEntity[]>(this.URL_BASE+'getAllPets');
+  }
 }

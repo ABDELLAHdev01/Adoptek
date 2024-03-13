@@ -6,4 +6,5 @@ export interface AppState {
     user: UserEntity;
     authResponse: AuthResponse;
     pet: PetEntity;
+    pets: PetEntity[];
 }
