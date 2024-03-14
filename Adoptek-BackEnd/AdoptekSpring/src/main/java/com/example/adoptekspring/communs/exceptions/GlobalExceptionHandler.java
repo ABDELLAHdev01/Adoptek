@@ -13,6 +13,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import java.nio.file.NoSuchFileException;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -55,6 +56,18 @@ public class GlobalExceptionHandler {
 
         errorSimpleResponse.setTimestamp(LocalDateTime.now());
         errorSimpleResponse.setMessage("Resource Not Found");
+        errorSimpleResponse.setDetails(Collections.singletonList(exception.getMessage()));
+        errorSimpleResponse.setPath(request.getRequestURI());
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorSimpleResponse);
+    }
+
+    @ExceptionHandler(NoSuchFileException.class)
+    public ResponseEntity<ErrorResponseSimpleFormat> handleNoSuchFileException(
+            NoSuchFileException exception, HttpServletRequest request) {
+
+        errorSimpleResponse.setTimestamp(LocalDateTime.now());
+        errorSimpleResponse.setMessage("File Not Found");
         errorSimpleResponse.setDetails(Collections.singletonList(exception.getMessage()));
         errorSimpleResponse.setPath(request.getRequestURI());
 

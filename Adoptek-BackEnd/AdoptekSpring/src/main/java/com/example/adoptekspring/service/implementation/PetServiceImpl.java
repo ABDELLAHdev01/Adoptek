@@ -1,8 +1,10 @@
 package com.example.adoptekspring.service.implementation;
 
 import com.example.adoptekspring.domain.Pet;
+import com.example.adoptekspring.domain.enm.PetCategory;
 import com.example.adoptekspring.repository.PetRepository;
 import com.example.adoptekspring.service.PetService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import com.example.adoptekspring.domain.User;
 import org.springframework.stereotype.Service;
@@ -10,17 +12,15 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class PetServiceImpl implements PetService {
 
     private final PetRepository petRepository;
 
-    public PetServiceImpl(PetRepository petRepository) {
-        this.petRepository = petRepository;
-    }
-
     @Override
     public Pet createPet(Pet pet) {
-
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        pet.setOwner(user);
         return petRepository.save(pet);
     }
 
@@ -44,10 +44,7 @@ public class PetServiceImpl implements PetService {
         petRepository.deleteById(id);
     }
 
-    @Override
-    public Pet getPetById(Long id) {
-        return petRepository.findById(id).orElseThrow(() -> new RuntimeException("Pet not found"));
-    }
+
 
     @Override
     public List<Pet> getAllPets() {
@@ -57,4 +54,16 @@ public class PetServiceImpl implements PetService {
         }
         return pets;
     }
+
+    @Override
+    public List<Pet> getAllPetsByCategory(String category) {
+        PetCategory petCategory = PetCategory.valueOf(category);
+        List<Pet> pets = petRepository.findAllByPetCategory(petCategory);
+        if (pets.isEmpty()) {
+            throw new RuntimeException("No pets found");
+        }
+        return pets;
+    }
+
+
 }
