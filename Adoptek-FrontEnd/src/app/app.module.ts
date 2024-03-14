@@ -41,6 +41,7 @@ import { PetEffect } from './state/pet/pet-effect';
 import { JwthelperInterceptor } from './interceptor/jwthelper.interceptor';
 import { DogPetsComponent } from './components/dog-pets/dog-pets.component';
 import { CatPETComponent } from './components/cat-pet/cat-pet.component';
+import { petReducer } from './state/pet/pet-reducer';
 
 @NgModule({
   declarations: [
@@ -78,7 +79,7 @@ import { CatPETComponent } from './components/cat-pet/cat-pet.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({user: userReducer}, {}),
+    StoreModule.forRoot({user: userReducer ,pets : petReducer}, {}),
     EffectsModule.forRoot([UserEffect,PetEffect]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
   ],

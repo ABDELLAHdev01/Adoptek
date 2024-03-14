@@ -2,12 +2,12 @@
 <section class="text-gray-600 body-font mt-20">
     <div class="container px-10  mx-auto">
 
-      <div class="flex flex-wrap -m-4">
+      <div   class="flex flex-wrap -m-4">
         
 
-        <div *ngFor="let item of " class="p-4 md:w-1/4 theimage" routerLink="/animal">
+        <div *ngFor="let item of pets$ |async"   class="p-4 md:w-1/4 theimage" routerLink="/animal">
           <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
-            <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="../../../assets/images/14034843_316092752058116_799373419925571974_n.jpg" alt="blog">
+            <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="{{'../../../assets/images/'+item.image}}" alt="blog">
              <!-- Card Content -->
              <div class="flex-grow flex flex-col p-5">
                 <!-- Card body -->
@@ -15,13 +15,13 @@
                     <!-- Header -->
                     <header class="mb-3">
                         <a class="block focus:outline-none focus-visible:ring-2" href="#0">
-                            <h3 class="text-[22px] text-gray-900 font-extrabold leading-snug">Name: Rex</h3>
+                            <h3 class="text-[22px] text-gray-900 font-extrabold leading-snug">Name: {{item.name}}</h3>
                         </a>
                     </header>
                     <!-- Content -->
-                    <p class="font-bold">Category: <span class="font-normal"> Dog</span></p>
-                    <p class="font-bold">Breed: <span class="font-normal">labrador</span></p>
-                    <p class="font-bold">Age: <span class="font-normal">1 Years </span></p>
+                    <p class="font-bold">Category: <span class="font-normal">{{item.petCategory}}</span></p>
+                    <p class="font-bold">Breed: <span class="font-normal">{{item.breed}}</span></p>
+                    <p class="font-bold">Age: <span class="font-normal">{{item.age}}</span></p>
                 </div>
             
             </div>

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { PetEntity } from 'src/app/domain/pet-entity';
 import * as PetAction from 'src/app/state/pet/pet-action'
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { AppState } from 'src/app/state/app-state'; 
 import { Observable } from 'rxjs';
-import { Route } from '@angular/router';
+import * as petselectot from 'src/app/state/pet/pet-selector';
 
 
 @Component({
@@ -17,31 +17,18 @@ export class PetcardsComponent implements OnInit{
   pets$!: Observable<PetEntity[]>;
   
 
-  constructor(private store : Store<AppState>) { }
+  constructor(private store: Store<AppState>) {
+    
+  }
+
+  
 
   ngOnInit(): void {
     this.store.dispatch(PetAction.getPets());
-    this.pets$ = this.store.select(store => store.pets);
-    console.log(this.pets$);
+    this.pets$ = this.store.select(petselectot.selectAllPets);
+    this.pets$.subscribe((pets: any) => {
+      console.log(pets);
+    } );
     
-
     
-      
-      
-  }
-
-  petDetails(pet: PetEntity) {
-    console.log(pet);
-  }
-
-  petEdit(pet: PetEntity) {
-    console.log(pet);
-  }
-
-  petDelete(pet: PetEntity) {
-    console.log(pet);
-  }
-  
-
-
-}
+  }}
