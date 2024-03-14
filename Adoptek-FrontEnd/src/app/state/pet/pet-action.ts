@@ -3,12 +3,12 @@ import { PetEntity } from "src/app/domain/pet-entity";
 
 export const addPet = createAction(
     '[Pet] Add Pet',
-    props<{ pet: PetEntity }>()
+    props<{ pet: FormData }>()
 );
 
 export const addPetSuccess = createAction(
     '[Pet] Add Pet Success',
-    props<{ pet: PetEntity }>()
+    props<{ pet: FormData }>()
 );
 
 export const addPetFailure = createAction(
@@ -27,5 +27,20 @@ export const getPetsSuccess = createAction(
 
 export const getPetsFailure = createAction(
     '[Pet] Get Pets Failure',
+    props<{ errorMessage: string }>()
+);
+
+export const getPetsByCategory = createAction(
+    '[Pet] Get Pets By Category',
+    props<{ category: string }>()
+);
+
+export const getPetsByCategorySuccess = createAction(
+    '[Pet] Get Pets By Category Success',
+    props<{ pets: PetEntity[] }>()
+);
+
+export const getPetsByCategoryFailure = createAction(
+    '[Pet] Get Pets By Category Failure',
     props<{ errorMessage: string }>()
 );

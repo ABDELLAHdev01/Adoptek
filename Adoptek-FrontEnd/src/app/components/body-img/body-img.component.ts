@@ -27,23 +27,42 @@ export class BodyImgComponent implements OnInit {
       weight: ['', Validators.required],
       gender: ['', Validators.required],
       goodWith: ['', Validators.required],
-      image: ['', Validators.required],
+      image: [''],
       location: ['', Validators.required],
       health: ['', Validators.required],
       aggressionLevel: ['', Validators.required],
       color: ['', Validators.required]
     });
   }
+  selectedFile: File | null = null; // Add this line
 
-  addPet(){
-    if (this.formAddPet.invalid) {
-      return;
+  onFileChange(event: any) {
+    if (event.target.files.length > 0) {
+      this.selectedFile = event.target.files[0];
+      console.log(this.selectedFile);
     }
-    this.pet = this.formAddPet.value;
-    this.store.dispatch(PetAction.addPet({pet: this.pet}));
-    this.router.navigate(['/home']);
   }
 
+  addPet() {
+    if (this.formAddPet.valid) {
+      const formData = new FormData();
+      for (const key in this.formAddPet.value) {
+        if (this.formAddPet.value.hasOwnProperty(key)) {
+          if (key === 'image' && this.selectedFile) {
+            // append file to form data
+            formData.append(key, this.selectedFile, this.selectedFile.name);
+          } else {
+            formData.append(key, this.formAddPet.value[key]);
+          }
+        }
+      }
+
+      // dispatch action with form data instead of form value
+      console.log(formData);
+      this.store.dispatch(PetAction.addPet({pet: formData}));
+      this.router.navigate(['/home']);
+    }
+  }
 
 
 

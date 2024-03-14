@@ -11,82 +11,80 @@ class="bg-center dd  bg-no-repeat  bg-[url('https://images.pexels.com/photos/825
                 <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                     ADD YOUR PET <i class="fa-solid fa-paw"></i>
                 </h1>
-                <form class="space-y-4 md:space-y-6" >
-                    <div class="no1" *ngIf="count == 0">
+                <form class="space-y-4 md:space-y-6"  [formGroup]="formAddPet" (ngSubmit)="addPet()"  enctype="multipart/form-data">
+                    <div class="no1" *ngIf="count == 0" [formGroup]="formAddPet">
 
-                        <div>
+                        <div [formGroup]="formAddPet">
                             <label for="text" class="flex mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
-                            <input type="text" name="text" id="text" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Rex" required="">
+                            <input  formControlName="name" type="text" name="text" id="text" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Rex" required="">
                         </div>
-                        <div>
+                        <div [formGroup]="formAddPet">
                             <label for="category" class="flex mb-2 text-sm font-medium text-gray-900 dark:text-white">Category</label>
-                            <select name="category" id="category" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
-                                <option value="dog">Dog</option>
-                                <option value="cat">Cat</option>
-                                <option value="bird">Bird</option>
-                                <option value="other">Other</option>
+                            <select  formControlName="petCategory" name="category" id="category" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
+                                <option value="DOG">Dog</option>
+                                <option value="CAT">Cat</option>
+                                <option value="OTHER">Other</option>
                             </select>
                         </div>
-                        <div>
+                        <div [formGroup]="formAddPet">
                             <label for="description" class="flex mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
-                            <textarea name="description" id="description" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter description" required=""></textarea>
+                            <textarea formControlName="description" name="description" id="description" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter description" required=""></textarea>
                         </div>
-                        <div>
+                        <div [formGroup]="formAddPet">
                             <label for="age" class="flex mb-2 text-sm font-medium text-gray-900 dark:text-white">Age</label>
-                            <input type="number" name="age" id="age" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter age" required="">
+                            <input formControlName="age" type="number" name="age" id="age" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter age" required="">
                         </div>
-                    </div>
-                    <div class="no2" *ngIf="count == 1">
-                        <div>
+                    </div >
+                    <div class="no2" *ngIf="count == 1" [formGroup]="formAddPet">
+                        <div [formGroup]="formAddPet">
                             <label for="breed" class="flex mb-2 text-sm font-medium text-gray-900 dark:text-white">Breed</label>
-                            <input type="text" name="breed" id="breed" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter breed" required="">
+                            <input formControlName="breed" type="text" name="breed" id="breed" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter breed" required="">
                         </div>
-                        <div>
+                        <div [formGroup]="formAddPet">
                             <label for="height" class="flex mb-2 text-sm font-medium text-gray-900 dark:text-white">Height</label>
-                            <input type="number" name="height" id="height" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter height" required="">
+                            <input formControlName="height" type="number" name="height" id="height" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter height" required="">
                         </div>
-                        <div>
+                        <div [formGroup]="formAddPet">
                             <label for="weight" class="flex mb-2 text-sm font-medium text-gray-900 dark:text-white">Weight</label>
-                            <input type="number" name="weight" id="weight" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter weight" required="">
+                            <input formControlName="weight" type="number" name="weight" id="weight" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter weight" required="">
                         </div>
-                        <div>
+                        <div [formGroup]="formAddPet">
                             <label for="gender" class="flex mb-2 text-sm font-medium text-gray-900 dark:text-white">Gender</label>
-                            <select name="gender" id="gender" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
+                            <select formControlName="gender" name="gender" id="gender" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
                             </select>
                         </div>
                       
                     </div>
 
-                    <div class="no3" *ngIf="count == 2">
-                        <div>
+                    <div class="no3" *ngIf="count == 2" [formGroup]="formAddPet">
+                        <div [formGroup]="formAddPet">
                             <label for="goodWith" class="flex mb-2 text-sm font-medium text-gray-900 dark:text-white">Good With</label>
-                            <input type="text" name="goodWith" id="goodWith" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter good with" required="">
+                            <input formControlName="goodWith" type="text" name="goodWith" id="goodWith" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter good with" required="">
                         </div>
-                        <div>
+                        <div [formGroup]="formAddPet">
                             <label for="image" class="flex mb-2 text-sm font-medium text-gray-900 dark:text-white">Image</label>
-                            <input type="file" name="image" id="image" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
-                        </div>
-                        <div>
+                            <input type="file" formControlName="image" (change)="onFileChange($event)" />                        </div>
+                        <div [formGroup]="formAddPet">
                             <label for="location" class="flex mb-2 text-sm font-medium text-gray-900 dark:text-white">Location</label>
-                            <input type="text" name="location" id="location" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter location" required="">
+                            <input  formControlName="location" type="text" name="location" id="location" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter location" required="">
                         </div>
-                        <div>
+                        <div [formGroup]="formAddPet">
                             <label for="health" class="flex mb-2 text-sm font-medium text-gray-900 dark:text-white">Health</label>
-                            <input type="text" name="health" id="health" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter health" required="">
+                            <input formControlName="health" type="text" name="health" id="health" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter health" required="">
                         </div>
-                        <div>
+                        <div [formGroup]="formAddPet">
                             <label for="aggressionLevel" class="flex mb-2 text-sm font-medium text-gray-900 dark:text-white">Aggression Level</label>
-                            <input type="text" name="aggressionLevel" id="aggressionLevel" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter aggression level" required="">
+                            <input formControlName="aggressionLevel"  type="text" name="aggressionLevel" id="aggressionLevel" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter aggression level" required="">
                         </div>
-                        <div>
+                        <div [formGroup]="formAddPet">
                             <label for="color" class="flex mb-2 text-sm font-medium text-gray-900 dark:text-white">Color</label>
-                            <input type="text" name="color" id="color" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter color" required="">
+                            <input formControlName="color" type="text" name="color" id="color" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter color" required="">
                         </div>
                     </div>
                         
-                    <div>
+                    <div [formGroup]="formAddPet">
                         <!-- next button -->
                         <button *ngIf="count != 2" (click)="addone()" type="button" class="bg-yellow-500 text-white font-bold py-2 px-4 w-full rounded hover:bg-primary-600" id="next">Next</button>
                         <button *ngIf="count == 2" type="submit" class="bg-yellow-500 text-white font-bold py-2 px-4 w-full rounded hover:bg-primary-600">Add Pet</button>

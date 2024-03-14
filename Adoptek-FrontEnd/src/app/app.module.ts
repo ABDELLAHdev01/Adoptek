@@ -1,5 +1,7 @@
 import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -35,6 +37,10 @@ import { AboutAnimalComponent } from './components/about-animal/about-animal.com
 import { QuizComponent } from './layout/quiz/quiz.component';
 import { PutPetComponent } from './layout/put-pet/put-pet.component';
 import { BodyImgComponent } from './components/body-img/body-img.component';
+import { PetEffect } from './state/pet/pet-effect';
+import { JwthelperInterceptor } from './interceptor/jwthelper.interceptor';
+import { DogPetsComponent } from './components/dog-pets/dog-pets.component';
+import { CatPETComponent } from './components/cat-pet/cat-pet.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +70,8 @@ import { BodyImgComponent } from './components/body-img/body-img.component';
     QuizComponent,
     PutPetComponent,
     BodyImgComponent,
+    DogPetsComponent,
+    CatPETComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,10 +79,10 @@ import { BodyImgComponent } from './components/body-img/body-img.component';
     HttpClientModule,
     ReactiveFormsModule,
     StoreModule.forRoot({user: userReducer}, {}),
-    EffectsModule.forRoot([UserEffect]),
+    EffectsModule.forRoot([UserEffect,PetEffect]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
   ],
-  providers: [],
+  providers: [ { provide: HTTP_INTERCEPTORS, useClass: JwthelperInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

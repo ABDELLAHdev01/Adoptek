@@ -8,7 +8,7 @@ export interface PetEntity {
     weight: number;
     gender: string;
     goodWith: string;
-    image: File;
+    image: FormData;
     location: string;
     health: string;
     aggressionLevel: string;

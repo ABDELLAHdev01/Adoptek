@@ -8,6 +8,9 @@ import { SearchPetComponent } from './layout/search-pet/search-pet.component';
 import { AnimalPageComponent } from './layout/animal-page/animal-page.component';
 import { QuizComponent } from './layout/quiz/quiz.component';
 import { PutPetComponent } from './layout/put-pet/put-pet.component';
+import { DogPetsComponent } from './components/dog-pets/dog-pets.component';
+import { CatPETComponent } from './components/cat-pet/cat-pet.component';
+import { PetcardsComponent } from './components/petcards/petcards.component';
 
 const routes: Routes = [
   {
@@ -37,7 +40,23 @@ const routes: Routes = [
   },
   {
     path: "search",
-    component: SearchPetComponent
+    component: SearchPetComponent,
+    children: [
+      {
+        path: "dog",
+        component: DogPetsComponent
+        
+      },
+      {
+        path: "cat",
+        component: CatPETComponent
+      },
+      {
+        path: "**",
+        component: PetcardsComponent
+      }
+ ] 
+
   },
   {
     path: "animal",

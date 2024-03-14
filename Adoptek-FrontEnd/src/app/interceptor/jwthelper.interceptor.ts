@@ -6,28 +6,28 @@ import {
   HttpInterceptor
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { LocalStorgeService } from './service/local-storge.service';
+import { LocalStorgeService } from '../service/local-storge.service';
 
 @Injectable()
-export class JwtHelperInterceptor implements HttpInterceptor {
+export class JwthelperInterceptor implements HttpInterceptor {
 
-  constructor(private localService: LocalStorgeService) {}
+  constructor(private tokenService : LocalStorgeService) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    const token = this.localService.getToken();
+    const authToken = this.tokenService.getToken();
+   
 
-    if(token){
-
-
+    // Check if authToken is available
+    if (authToken) {
+      
+      // Clone the request to add the new header.
       const authReq = request.clone({
-        headers: request.headers.set('Authorization', `Bearer ${token}`)
+        headers: request.headers.set('Authorization', `Bearer ${authToken}`)
       });
 
       // Send the newly created request
       return next.handle(authReq);
-    }	
-
+    }
     return next.handle(request);
-  
   }
 }

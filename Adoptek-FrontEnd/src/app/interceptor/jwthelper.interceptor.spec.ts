@@ -1,16 +1,16 @@
 import { TestBed } from '@angular/core/testing';
 
-import { JwtHelperInterceptor } from './jwt-helper.interceptor';
+import { JwthelperInterceptor } from './jwthelper.interceptor';
 
-describe('JwtHelperInterceptor', () => {
+describe('JwthelperInterceptor', () => {
   beforeEach(() => TestBed.configureTestingModule({
     providers: [
-      JwtHelperInterceptor
+      JwthelperInterceptor
       ]
   }));
 
   it('should be created', () => {
-    const interceptor: JwtHelperInterceptor = TestBed.inject(JwtHelperInterceptor);
+    const interceptor: JwthelperInterceptor = TestBed.inject(JwthelperInterceptor);
     expect(interceptor).toBeTruthy();
   });
 });

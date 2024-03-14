@@ -3,13 +3,14 @@ import * as PetActions from "../pet/pet-action"
 import { PetEntity } from 'src/app/domain/pet-entity';
 
 export interface PetState {
-    petList: PetEntity[];
+    pets: PetEntity[];
+
     loading: boolean;
     error: string | null;
 }
 
 export const initialState: PetState = {
-    petList: [],
+    pets: [],
     loading: false,
     error: null
 };
@@ -26,10 +27,53 @@ export const petReducer = createReducer(
 
     on(PetActions.addPetSuccess, (state, { pet }) => ({
         ...state,
-        petList: [...state.petList, pet],
+        petList: [...state.pets, pet],
         loading: false
     })),
 
+    on(PetActions.addPetFailure, (state, { errorMessage }) => ({
+        ...state,
+        loading: false,
+        error: errorMessage
+    })),
+
+    on(PetActions.getPets, state => ({
+        ...state,
+        loading: true,
+        error: null
+    })),
+
+    on(PetActions.getPetsSuccess, (state, { pets }) => ({
+        ...state,
+        pets: pets,
+        loading: false
+    })),
+
+    on(PetActions.getPetsFailure, (state, { errorMessage }) => ({
+        ...state,
+        loading: false,
+        error: errorMessage
+    })),
+
+    on(PetActions.getPetsByCategory, state => ({
+        ...state,
+        loading: true,
+        error: null
+    })),
+
+    on(PetActions.getPetsByCategorySuccess, (state, { pets }) => ({
+        ...state,
+        pets: pets,
+        loading: false
+    })),
+
+    on(PetActions.getPetsByCategoryFailure, (state, { errorMessage }) => ({
+        ...state,
+        loading: false,
+        error: errorMessage
+    }))
+
+    
 )
 
   

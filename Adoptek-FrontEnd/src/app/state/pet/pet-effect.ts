@@ -22,4 +22,22 @@ export class PetEffect {
             catchError((errorMessage) => [PetActions.addPetFailure({errorMessage})])
         ))
     ));
+
+    getPets$ = createEffect(()=> this.actions$.pipe(
+        ofType(PetActions.getPets),
+        mergeMap(() => this.petService.getPets().pipe(
+            map(pets => PetActions.getPetsSuccess({pets})),
+            catchError((errorMessage) => [PetActions.getPetsFailure({errorMessage})])
+        ))
+    )
+    );
+
+    getPetsByCategory$ = createEffect(()=> this.actions$.pipe(
+        ofType(PetActions.getPetsByCategory),
+        mergeMap(action => this.petService.getPetsByCategory(action.category).pipe(
+            map(pets => PetActions.getPetsByCategorySuccess({pets})),
+            catchError((errorMessage) => [PetActions.getPetsByCategoryFailure({errorMessage})])
+        ))
+    )
+    );
 }

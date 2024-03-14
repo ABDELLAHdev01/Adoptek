@@ -12,11 +12,15 @@ export class PetService {
 
   constructor(private _http : HttpClient) {}
 
-  addPet(pet:PetEntity):Observable<PetEntity> {
-    return this._http.post<PetEntity>(this.URL_BASE+'addPet', pet)
+  addPet(pet:FormData):Observable<any> {
+    return this._http.post<any>(this.URL_BASE+'addPet', pet)
   }
 
   getPets():Observable<PetEntity[]> {
     return this._http.get<PetEntity[]>(this.URL_BASE+'getAllPets');
+  }
+
+  getPetsByCategory(category: string): Observable<PetEntity[]> {
+    return this._http.get<PetEntity[]>(this.URL_BASE+'getPetsByCategory?category='+category);
   }
 }
