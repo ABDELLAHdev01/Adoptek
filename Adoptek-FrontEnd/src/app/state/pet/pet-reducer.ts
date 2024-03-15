@@ -73,6 +73,25 @@ export const petReducer = createReducer(
         error: errorMessage
     }))
 
+    ,
+    on(PetActions.getPetsByOwner, state => ({
+        ...state,
+        loading: true,
+        error: null
+    })),
+
+    on(PetActions.getPetsByOwnerSuccess, (state, { pets }) => ({
+        ...state,
+        pets: pets,
+        loading: false
+    })),
+
+    on(PetActions.getPetsByOwnerFailure, (state, { errorMessage }) => ({
+        ...state,
+        loading: false,
+        error: errorMessage
+    }))
+
     
 )
 

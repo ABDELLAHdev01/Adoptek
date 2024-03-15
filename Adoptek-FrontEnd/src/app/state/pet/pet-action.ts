@@ -44,3 +44,17 @@ export const getPetsByCategoryFailure = createAction(
     '[Pet] Get Pets By Category Failure',
     props<{ errorMessage: string }>()
 );
+
+export const getPetsByOwner = createAction(
+    '[Pet] Get Pets By Owner'
+);
+
+export const getPetsByOwnerSuccess = createAction(
+    '[Pet] Get Pets By Owner Success',
+    props<{ pets: PetEntity[] }>()
+);
+
+export const getPetsByOwnerFailure = createAction(
+    '[Pet] Get Pets By Owner Failure',
+    props<{ errorMessage: string }>()
+);

@@ -9,19 +9,14 @@ import * as UserActions from '../../state/user/user-action';
   styleUrls: ['./put-pet.component.css']
 })
 export class PutPetComponent implements OnInit {
-  tokenstring!: string;
   constructor(
-    private store: Store<AppState>,
-
+  
 
   ) { 
-        this.tokenstring = localStorage.getItem('token')+'';
 
   }
 
   ngOnInit(): void {
-    console.log(this.tokenstring);
-    this.store.dispatch(UserActions.checkJwtValidity({token: this.tokenstring}))
 
 
   }

@@ -1,0 +1,46 @@
+<div class="mt-24">
+    <button  data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="mt-48 inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+        <span class="sr-only">Open sidebar</span>
+        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
+        </svg>
+     </button>
+     
+     <aside id="default-sidebar" class="shadow-left fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 mt-24" aria-label="Sidebar">
+        <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+           <ul class="space-y-2 font-medium">
+              <li>
+                 <a routerLink="/dashboard/ownpets" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                    <i class="fa-solid fa-paw"></i>
+                    <span class="ms-3">Your Own Pets</span>
+                 </a>
+              </li>
+              <li>
+                 <a routerLink="/dashboard/favorite"  class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                    <i class="fa-solid fa-heart"></i>
+                    <span class="flex-1 ms-3 whitespace-nowrap">Favorite</span>
+                 </a>
+              </li>
+              <li>
+                 <button  (click)="onClick()" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span class="flex-1 ms-3 whitespace-nowrap">Log Out</span>
+                 </button>
+              </li>
+           </ul>
+        </div>
+     </aside>
+     
+     <div class="p-4 sm:ml-64">
+        <div class=" mt-4 p-4 ">
+           <router-outlet></router-outlet>
+     
+</div>
+
+
+<style>
+    .shadow-left{
+        /* i wanna shadow the side bar at the right side */
+        box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+    }
+</style>

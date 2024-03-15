@@ -1,6 +1,7 @@
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import * as PetActions from "../pet/pet-action"
-
+import { Router } from '@angular/router';
+import { tap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 
 import { catchError, map, mergeMap } from 'rxjs/operators';
@@ -12,6 +13,7 @@ import { PetService } from 'src/app/service/pet.service';
 export class PetEffect {
     constructor(
         private actions$: Actions,
+        private router: Router,
         private petService:PetService
         ){}
 
@@ -40,4 +42,24 @@ export class PetEffect {
         ))
     )
     );
+
+    getPetsByOwner$ = createEffect(()=> this.actions$.pipe(
+        ofType(PetActions.getPetsByOwner),
+        mergeMap(() => this.petService.getPetsByOwner().pipe(
+            map(pets => PetActions.getPetsByOwnerSuccess({pets})),
+            catchError((errorMessage) => [PetActions.getPetsByOwnerFailure({errorMessage})])
+        ))
+    )
+    );
+
+    petAddSuccessfully$ = createEffect(() => this.actions$.pipe(
+        ofType(PetActions.addPetFailure),
+        tap(() => this.router.navigate(['/dashboard']))
+    ), {dispatch: false});
+
+
+   
+
+
+
 }

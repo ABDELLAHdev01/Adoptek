@@ -23,4 +23,8 @@ export class PetService {
   getPetsByCategory(category: string): Observable<PetEntity[]> {
     return this._http.get<PetEntity[]>(this.URL_BASE+'getPetsByCategory?category='+category);
   }
+
+  getPetsByOwner(): Observable<PetEntity[]> {
+    return this._http.get<PetEntity[]>(this.URL_BASE+'getPetsByOwner');
+  }
 }
