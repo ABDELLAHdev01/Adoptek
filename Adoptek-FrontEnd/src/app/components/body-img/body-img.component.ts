@@ -39,7 +39,6 @@ export class BodyImgComponent implements OnInit {
   onFileChange(event: any) {
     if (event.target.files.length > 0) {
       this.selectedFile = event.target.files[0];
-      console.log(this.selectedFile);
     }
   }
 
@@ -60,7 +59,6 @@ export class BodyImgComponent implements OnInit {
       // dispatch action with form data instead of form value
       console.log(formData);
       this.store.dispatch(PetAction.addPet({pet: formData}));
-      this.router.navigate(['/home']);
     }
   }
 

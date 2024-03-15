@@ -81,6 +81,10 @@ public class petController {
         return ResponseEntity.ok(petService.getAllPetsByCategory(category));
     }
 
+    @GetMapping("/getPetsByOwner")
+    public ResponseEntity<List<Pet>> getAllPetsByOwner() {
+        return ResponseEntity.ok(petService.getAllPetsByOwner());
+    }
 
 
 }

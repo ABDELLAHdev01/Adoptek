@@ -11,8 +11,29 @@ import { PutPetComponent } from './layout/put-pet/put-pet.component';
 import { DogPetsComponent } from './components/dog-pets/dog-pets.component';
 import { CatPETComponent } from './components/cat-pet/cat-pet.component';
 import { PetcardsComponent } from './components/petcards/petcards.component';
+import { OwnPetsComponent } from './layout/own-pets/own-pets.component';
+import { OwnPetCardsComponent } from './components/own-pet-cards/own-pet-cards.component';
+import { FavoriteCardsComponent } from './components/favorite-cards/favorite-cards.component';
 
 const routes: Routes = [
+  {
+    path: "dashboard",
+    component: OwnPetsComponent,
+    children: [
+      {
+        path: "ownpets",
+        component: OwnPetCardsComponent
+      },
+      {
+        path: "favorite",
+        component: FavoriteCardsComponent
+      },
+      {
+        path: "**",
+        component: OwnPetCardsComponent
+      }
+    ]
+  },
   {
     path: '',
     component: HomePageComponent
@@ -21,6 +42,7 @@ const routes: Routes = [
     path: "auth",
     component: AuthComponent,
     children: [
+      
       {
         path: "login",
         component: LoginFormComponent
@@ -73,7 +95,8 @@ const routes: Routes = [
   {
     path: "**",
     redirectTo: ""
-  }
+  },
+ 
 ];
 
 @NgModule({

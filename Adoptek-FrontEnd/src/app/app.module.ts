@@ -42,6 +42,12 @@ import { JwthelperInterceptor } from './interceptor/jwthelper.interceptor';
 import { DogPetsComponent } from './components/dog-pets/dog-pets.component';
 import { CatPETComponent } from './components/cat-pet/cat-pet.component';
 import { petReducer } from './state/pet/pet-reducer';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { OwnPetsComponent } from './layout/own-pets/own-pets.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { OwnPetCardsComponent } from './components/own-pet-cards/own-pet-cards.component';
+import { FavoriteCardsComponent } from './components/favorite-cards/favorite-cards.component'; // <-- import the module
+
 
 @NgModule({
   declarations: [
@@ -73,11 +79,16 @@ import { petReducer } from './state/pet/pet-reducer';
     BodyImgComponent,
     DogPetsComponent,
     CatPETComponent,
+    OwnPetsComponent,
+    SidebarComponent,
+    OwnPetCardsComponent,
+    FavoriteCardsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    NgxPaginationModule,
     ReactiveFormsModule,
     StoreModule.forRoot({user: userReducer ,pets : petReducer}, {}),
     EffectsModule.forRoot([UserEffect,PetEffect]),

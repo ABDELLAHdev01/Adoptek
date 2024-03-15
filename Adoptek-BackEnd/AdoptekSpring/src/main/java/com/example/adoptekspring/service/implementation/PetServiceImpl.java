@@ -4,6 +4,7 @@ import com.example.adoptekspring.domain.Pet;
 import com.example.adoptekspring.domain.enm.PetCategory;
 import com.example.adoptekspring.repository.PetRepository;
 import com.example.adoptekspring.service.PetService;
+import com.example.adoptekspring.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import com.example.adoptekspring.domain.User;
@@ -64,6 +65,17 @@ public class PetServiceImpl implements PetService {
         }
         return pets;
     }
+
+    @Override
+    public List<Pet> getAllPetsByOwner() {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        List<Pet> pets = petRepository.findAllByNativeQuery(user.getId());
+        if (pets.isEmpty()) {
+            throw new RuntimeException("No pets found");
+        }
+        return pets;
+    }
+
 
 
 }

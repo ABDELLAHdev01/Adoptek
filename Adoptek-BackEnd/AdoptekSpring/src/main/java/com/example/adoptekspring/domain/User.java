@@ -33,6 +33,9 @@ public class User implements UserDetails {
     private String city;
     @OneToMany
     private List<Pet> pets;
+    @OneToOne
+    private favPet favPet;
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
