@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
 import { LocalStorgeService } from 'src/app/service/local-storge.service';
 import { CheckJwtValidityService } from 'src/app/service/check-jwt-validity.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Injectable()
@@ -16,7 +17,8 @@ export class UserEffect {
         private authService:AuthenticatonService,
         private checkJwtValidityService: CheckJwtValidityService,
         private router : Router,
-        private localStorageService: LocalStorgeService
+        private localStorageService: LocalStorgeService,
+        private toastr: ToastrService
         ){}
 
 
@@ -34,7 +36,9 @@ export class UserEffect {
 
     registerSuccess$ = createEffect(() => this.actions$.pipe(
         ofType(UserActions.registerSuccess),
-        tap(() => this.router.navigate(['/putpet']))
+        tap(() => this.router.navigate(['/putpet'])),
+        tap(() => this.toastr.success('Registred Successful'))
+
     ), {dispatch: false});
 
     login$ = createEffect(() => this.actions$.pipe(
@@ -50,13 +54,16 @@ export class UserEffect {
 
     loginSuccess$ = createEffect(() => this.actions$.pipe(
         ofType(UserActions.loginSuccess),
+        tap(() => this.toastr.success('Login Successful')),
         tap(() => this.router.navigate(['/']))
     ), {dispatch: false});
 
     logout$ = createEffect(() => this.actions$.pipe(
         ofType(UserActions.logout),
         tap(() => this.router.navigate(['/'])),
-        tap(() => this.localStorageService.clearLocalStorage())
+        tap(() => this.localStorageService.clearLocalStorage()),
+        tap(() => this.toastr.success('Logout Successful'))
+
     ), {dispatch: false});
 
 

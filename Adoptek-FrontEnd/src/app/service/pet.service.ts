@@ -27,4 +27,12 @@ export class PetService {
   getPetsByOwner(): Observable<PetEntity[]> {
     return this._http.get<PetEntity[]>(this.URL_BASE+'getPetsByOwner');
   }
+
+  deletePetById(id: string): Observable<string> {
+    return this._http.delete<string>(this.URL_BASE+'deletePet/'+id);
+  }
+
+  getpetById(id: number): Observable<PetEntity> {
+    return this._http.get<PetEntity>(this.URL_BASE+'getpetById/'+id);
+  }
 }

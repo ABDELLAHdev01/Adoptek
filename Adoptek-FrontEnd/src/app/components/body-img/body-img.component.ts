@@ -5,6 +5,7 @@ import * as PetAction from '../../state/pet/pet-action'
 import { PetEntity } from 'src/app/domain/pet-entity';
 import { AppState } from 'src/app/state/app-state';
 import { Store } from '@ngrx/store';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-body-img',
   templateUrl: './body-img.component.html',
@@ -14,9 +15,12 @@ export class BodyImgComponent implements OnInit {
   pet!: PetEntity ;
   formAddPet!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private router: Router,private store : Store<AppState>) { }
+  constructor(private formBuilder: FormBuilder, private router: Router,private store : Store<AppState>,
+    private toastr: ToastrService
+    ) { }
 
   ngOnInit(): void {
+
     this.formAddPet = this.formBuilder.group({
       name: ['', Validators.required],
       petCategory: ['', Validators.required],

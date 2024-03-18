@@ -14,8 +14,14 @@ import { PetcardsComponent } from './components/petcards/petcards.component';
 import { OwnPetsComponent } from './layout/own-pets/own-pets.component';
 import { OwnPetCardsComponent } from './components/own-pet-cards/own-pet-cards.component';
 import { FavoriteCardsComponent } from './components/favorite-cards/favorite-cards.component';
+import { OthersCardsComponent } from './components/others-cards/others-cards.component';
+import { CoomingSoonComponent } from './layout/cooming-soon/cooming-soon.component';
 
 const routes: Routes = [
+  {
+    path: "Ai",
+    component: CoomingSoonComponent
+  },
   {
     path: "dashboard",
     component: OwnPetsComponent,
@@ -74,6 +80,10 @@ const routes: Routes = [
         component: CatPETComponent
       },
       {
+        path: "others",
+        component: OthersCardsComponent
+      },
+      {
         path: "**",
         component: PetcardsComponent
       }
@@ -81,7 +91,7 @@ const routes: Routes = [
 
   },
   {
-    path: "animal",
+    path: 'animal/:id',
     component: AnimalPageComponent
   },
   {
@@ -92,10 +102,12 @@ const routes: Routes = [
     path: "putpet",
     component: PutPetComponent
   },
+ 
   {
     path: "**",
     redirectTo: ""
   },
+
  
 ];
 

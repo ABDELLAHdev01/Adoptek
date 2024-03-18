@@ -92,6 +92,38 @@ export const petReducer = createReducer(
         error: errorMessage
     }))
 
+    ,
+
+    on(PetActions.deletePetById, state => ({
+        ...state,
+        loading: true,
+        error: null
+    })),
+
+    on(PetActions.deletePetByIdSuccess, (state, { id }) => ({
+        ...state,
+        pets: state.pets.filter(pet => pet.id !== Number(id)),
+        loading: false
+    })),
+
+    on(PetActions.deletePetByIdFailure, (state, { errorMessage }) => ({
+        ...state,
+        loading: false,
+        error: errorMessage
+    })),
+
+    on(PetActions.getPetById, state => ({
+        ...state,
+        loading: true,
+        error: null
+    })),
+
+    on(PetActions.getPetByIdSuccess, (state, { pet }) => ({
+        ...state,
+        pets: [pet],
+        loading: false
+    })),
+
     
 )
 

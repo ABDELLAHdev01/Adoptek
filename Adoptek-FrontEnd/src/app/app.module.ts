@@ -47,7 +47,9 @@ import { OwnPetsComponent } from './layout/own-pets/own-pets.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { OwnPetCardsComponent } from './components/own-pet-cards/own-pet-cards.component';
 import { FavoriteCardsComponent } from './components/favorite-cards/favorite-cards.component'; // <-- import the module
-
+import { ToastrModule } from 'ngx-toastr';
+import { OthersCardsComponent } from './components/others-cards/others-cards.component';
+import { CoomingSoonComponent } from './layout/cooming-soon/cooming-soon.component';
 
 @NgModule({
   declarations: [
@@ -83,9 +85,12 @@ import { FavoriteCardsComponent } from './components/favorite-cards/favorite-car
     SidebarComponent,
     OwnPetCardsComponent,
     FavoriteCardsComponent,
+    OthersCardsComponent,
+    CoomingSoonComponent,
   ],
   imports: [
     BrowserModule,
+    ToastrModule.forRoot(), // ToastrModule added
     AppRoutingModule,
     HttpClientModule,
     NgxPaginationModule,

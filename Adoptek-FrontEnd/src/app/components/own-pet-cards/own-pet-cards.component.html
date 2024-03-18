@@ -7,7 +7,7 @@
       <div   class="flex flex-wrap -m-4">
 
 
-        <div *ngFor="let item of pets |  paginate: { itemsPerPage: 10, currentPage: p}"   class="p-4 md:w-1/4 theimage" routerLink="/animal">
+        <div *ngFor="let item of pets |  paginate: { itemsPerPage: 10, currentPage: p}"   class="p-4 md:w-1/4 theimage" routerLink="{{'/animal/'+item.id}}">
           <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
             <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="{{'../../../assets/images/'+item.image}}" alt="blog">
              <!-- Card Content -->
@@ -16,7 +16,7 @@
                 <div class="flex-grow">
                     <!-- Header -->
                     <header class="mb-3">
-                        <a class="block focus:outline-none focus-visible:ring-2" href="#0">
+                        <a class="block focus:outline-none focus-visible:ring-2">
                             <h3 class="text-[22px] text-gray-900 font-extrabold leading-snug">Name: {{item.name}}</h3>
                         </a>
                     </header>
@@ -25,6 +25,11 @@
                     <p class="font-bold">Breed: <span class="font-normal">{{item.breed}}</span></p>
                     <p class="font-bold">Age: <span class="font-normal">{{item.age}}</span></p>
                 </div>
+
+                <!-- Card Footer -->
+                <footer class="flex items-center justify-between">
+                  
+                  </footer>
             
             </div>
           </div>

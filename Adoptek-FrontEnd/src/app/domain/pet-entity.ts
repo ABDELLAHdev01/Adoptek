@@ -1,4 +1,5 @@
 export interface PetEntity {
+    id: number;
     name: string;
     petCategory: string;
     description: string;

@@ -19,6 +19,12 @@ export const selectPetError = createSelector(
     state => state.error
 );
 
+export const selectPetById = (id: number) => createSelector(
+    selectAllPets,
+    (pets) => {
+        return pets.find(pet => pet.id === id);
+    }
+);
 
 
 

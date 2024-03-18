@@ -1,35 +1,36 @@
-<section class="text-gray-600 body-font">
+<section class="text-gray-600 body-font" *ngFor="let item of pets$ |async">
     <div class="container px-5 py-24 mx-auto flex flex-col">
       <div class="lg:w-4/6 mx-auto">
         
         <div class="flex flex-col sm:flex-row mt-10">
           <div class="sm:w-1/3 text-center sm:pr-8 sm:py-8">
             <div class="flex flex-col items-center text-center justify-center">
-              <h2 class="font-medium title-font mt-4 text-gray-900 text-lg">Glinda</h2>
+              <h2 class="font-medium title-font mt-4 text-gray-900 text-lg">{{item.name}}</h2>
               <div class="w-12 h-1 bg-yellow-500 rounded mt-2 mb-4"></div>
-              <p class="text-base">Senior - Female - Medium - White</p>
-                <p class="text-base">Spayed - Vaccinated - Microchipped</p>
-                <p class="text-base">Good with dogs - Good with kids</p>
+              <p class="text-base">Category  : {{item.petCategory}}</p>
+              <p class="text-base">Breed  : {{item.breed}}</p>
+
+               
                 <!-- button of call the owner -->
                 <button class="mt-7 bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-full"><i class="fa-solid fa-phone"></i> Call the owner</button>
             </div>
           </div>
           <div class="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
             <!-- about the dog first age then sex then other information  -->
-            <h2 class="mt-4 text-gray-900 text-lg">About Glinda</h2>
+            <h2 class="mt-4 text-gray-900 text-lg">About {{item.name}}</h2>
             <div class="w-12 h-1 bg-yellow-500 rounded mt-2 mb-4"></div>
             <h3 class="mt-4 text-gray-900 text-lg mb-2" >Description :</h3>
-            <p class="leading-relaxed text-lg mb-4">Glinda is a senior dog who is looking for a loving home to spend her golden years. She is a very sweet and gentle dog who loves to be around people. She is good with other dogs and kids. She is spayed, vaccinated and microchipped. If you are interested in adopting Glinda, please contact us.</p>
+            <p class="leading-relaxed text-lg mb-4">{{item.description}}</p>
             <h3 class="mt-4 text-gray-900 text-lg mb-2" >Age :</h3>
-            <p class="leading-relaxed text-lg mb-4">8 years</p>
+            <p class="leading-relaxed text-lg mb-4">{{item.age}} Years old</p>
             <h3 class="mt-4 text-gray-900 text-lg mb-2" > Sex :</h3>
-            <p class="leading-relaxed text-lg mb-4">female</p>
+            <p class="leading-relaxed text-lg mb-4">{{item.sex}}</p>
             <h3 class="mt-4 text-gray-900 text-lg mb-2" >Size :</h3>
-            <p class="leading-relaxed text-lg mb-4">Medium</p>
+            <p class="leading-relaxed text-lg mb-4">{{item.size}}</p>
             <h3 class="mt-4 text-gray-900 text-lg mb-2" >Color :</h3>
-            <p class="leading-relaxed text-lg mb-4">White</p>
+            <p class="leading-relaxed text-lg mb-4">{{item.color}}</p>
             <h3 class="mt-4 text-gray-900 text-lg mb-2" >Weight :</h3>
-            <p class="leading-relaxed text-lg mb-4">20 kg</p>
+            <p class="leading-relaxed text-lg mb-4">{{item.weight}} kg</p>
 
 
 

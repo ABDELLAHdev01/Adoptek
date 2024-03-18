@@ -7,13 +7,12 @@ import { Observable } from 'rxjs';
 import * as petselectot from 'src/app/state/pet/pet-selector';
 import { ToastrService } from 'ngx-toastr';
 
-
 @Component({
-  selector: 'app-petcards',
-  templateUrl: './petcards.component.html',
-  styleUrls: ['./petcards.component.css']
+  selector: 'app-others-cards',
+  templateUrl: './others-cards.component.html',
+  styleUrls: ['./others-cards.component.css']
 })
-export class PetcardsComponent implements OnInit{
+export class OthersCardsComponent implements OnInit{
 
   p: number = 1;
 
@@ -28,7 +27,7 @@ export class PetcardsComponent implements OnInit{
   
 
   ngOnInit(): void {
-    this.store.dispatch(PetAction.getPets());
+    this.store.dispatch(PetAction.getPetsByCategory({ category: "OTHER"}));
     this.pets$ = this.store.select(petselectot.selectAllPets);
     this.pets$.subscribe((pets: any) => {
       this.pets = pets;

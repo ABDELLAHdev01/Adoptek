@@ -58,3 +58,33 @@ export const getPetsByOwnerFailure = createAction(
     '[Pet] Get Pets By Owner Failure',
     props<{ errorMessage: string }>()
 );
+
+export const deletePetById = createAction(
+    '[Pet] Delete Pet By Id',
+    props<{ id: string }>()
+);
+
+export const deletePetByIdSuccess = createAction(
+    '[Pet] Delete Pet By Id Success',
+    props<{ id: string }>()
+);
+
+export const deletePetByIdFailure = createAction(
+    '[Pet] Delete Pet By Id Failure',
+    props<{ errorMessage: string }>()
+);
+
+export const getPetById = createAction(
+    '[Pet] Get Pet By Id',
+    props<{ id: number }>()
+);
+
+export const getPetByIdSuccess = createAction(
+    '[Pet] Get Pet By Id Success',
+    props<{ pet: PetEntity }>()
+);
+
+export const getPetByIdFailure = createAction(
+    '[Pet] Get Pet By Id Failure',
+    props<{ errorMessage: string }>()
+);

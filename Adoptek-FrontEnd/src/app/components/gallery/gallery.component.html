@@ -1,25 +1,25 @@
 <div id="default-carousel" class="relative w-full mt-28 -mb-28" data-carousel="slide">
     <!-- Carousel wrapper -->
-    <div class="relative h-56 overflow-hidden rounded-lg md:h-96 bg-black">
+    <div *ngFor="let item of pets$|async" class="relative h-56 overflow-hidden rounded-lg md:h-96 bg-black">
         <!-- Item 1 -->
         <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/70838794/1/?bust=1708790802&width=1080" class="absolute block w-full h-full object-contain" alt="...">
+            <img src="{{'../../../assets/images/'+item.image}}" class="absolute block w-full h-full object-contain" alt="...">
         </div>
         <!-- Item 2 -->
         <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/70838794/1/?bust=1708790802&width=1080" class="absolute block w-full h-full object-contain" alt="...">
+            <img src="{{'../../../assets/images/'+item.image}}" class="absolute block w-full h-full object-contain" alt="...">
         </div>
         <!-- Item 3 -->
         <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/70838794/1/?bust=1708790802&width=1080" class="absolute block w-full h-full object-contain" alt="...">
+            <img src="{{'../../../assets/images/'+item.image}}" class="absolute block w-full h-full object-contain" alt="...">
         </div>
         <!-- Item 4 -->
         <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/70838794/1/?bust=1708790802&width=1080" class="absolute block w-full h-full object-contain" alt="...">
+            <img src="{{'../../../assets/images/'+item.image}}" class="absolute block w-full h-full object-contain" alt="...">
         </div>
         <!-- Item 5 -->
         <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/70838794/1/?bust=1708790802&width=1080" class="absolute block w-full h-full object-contain" alt="...">
+            <img src="{{'../../../assets/images/'+item.image}}" class="absolute block w-full h-full object-contain" alt="...">
         </div>
     </div>
     <!-- Slider indicators -->
