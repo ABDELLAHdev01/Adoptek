@@ -31,4 +31,6 @@ public class PetDto {
     private String health;
     private String aggressionLevel;
     private String color;
+    private String ownerPhoneNumber;
+
 }

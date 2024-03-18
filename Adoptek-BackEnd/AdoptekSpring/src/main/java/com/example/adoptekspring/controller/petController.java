@@ -87,4 +87,18 @@ public class petController {
     }
 
 
+
+    @GetMapping("/deletePet/{id}")
+    public ResponseEntity<String> deletePet(@NonNull @PathVariable Long id) {
+        petService.deletePet(id);
+        return ResponseEntity.ok("Pet deleted successfully");
+    }
+
+
+    @GetMapping("/getpetById/{id}")
+    public ResponseEntity<Pet> getpetById(@NonNull @PathVariable Long id) {
+        return ResponseEntity.ok(petService.getpetById(id));
+    }
+
+
 }

@@ -20,7 +20,7 @@ public class favPet {
     private User user;
 
     @ManyToMany
-    private List<Pet> favPets;
+    private List<Pet> UserFavoritePets;
 
 
 }

@@ -22,6 +22,7 @@ public class PetServiceImpl implements PetService {
     public Pet createPet(Pet pet) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         pet.setOwner(user);
+        pet.setOwnerPhoneNumber(user.getPhoneNumber());
         return petRepository.save(pet);
     }
 
@@ -77,5 +78,7 @@ public class PetServiceImpl implements PetService {
     }
 
 
-
+    public Pet getpetById(Long petId) {
+        return petRepository.findById(petId).orElseThrow(() -> new RuntimeException("Pet not found"));
+    }
 }

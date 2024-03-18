@@ -5,5 +5,8 @@ import com.example.adoptekspring.domain.favPet;
 public interface FavPetService {
     favPet CreateFavPet();
     favPet getFavPets();
-    favPet addPetToFavPets();
+
+    favPet getFavPet();
+
+    favPet addPetToFav(Long petId);
 }

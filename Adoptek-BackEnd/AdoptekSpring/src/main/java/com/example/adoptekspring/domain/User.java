@@ -33,8 +33,8 @@ public class User implements UserDetails {
     private String city;
     @OneToMany
     private List<Pet> pets;
-    @OneToOne
-    private favPet favPet;
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private favPet hisFavoritePets;
 
 
     @Override

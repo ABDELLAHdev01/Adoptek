@@ -16,5 +16,6 @@ public interface PetService {
     List<Pet> getAllPetsByCategory(String category);
     List<Pet> getAllPetsByOwner();
 
+     Pet getpetById(Long petId);
 
 }

@@ -2,6 +2,7 @@ package com.example.adoptekspring.domain;
 
 import com.example.adoptekspring.domain.enm.Gender;
 import com.example.adoptekspring.domain.enm.PetCategory;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -30,7 +31,9 @@ public class Pet {
     private String health;
     private String aggressionLevel;
     private String color;
+    private String ownerPhoneNumber;
 
+    @JsonIgnore
     @ManyToOne
     private User Owner;
 
