@@ -61,7 +61,7 @@ export class PetEffect {
 
     petAddFeulier$ = createEffect(() => this.actions$.pipe(
         ofType(PetActions.addPetFailure),
-        tap(() => this.toastr.success('Put Addedd Successful')),
+        tap(() => this.toastr.success('Pet Addedd Successful')),
     ), {dispatch: false});
 
     petGetSuccessfully$ = createEffect(() => this.actions$.pipe(

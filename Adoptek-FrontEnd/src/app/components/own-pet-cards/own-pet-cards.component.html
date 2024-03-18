@@ -1,11 +1,12 @@
-
 <section class="text-gray-600 body-font mt-20">
+  <div class="flex justify-end">
+    <button routerLink="/putpet" class="bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded"><i class="fa-solid fa-paw"></i> Add Another Pet</button>
+  </div>
     <pagination-controls (pageChange)="p = $event"></pagination-controls>
 
     <div class="container px-10  mx-auto">
 
       <div   class="flex flex-wrap -m-4">
-
 
         <div *ngFor="let item of pets |  paginate: { itemsPerPage: 10, currentPage: p}"   class="p-4 md:w-1/4 theimage" routerLink="{{'/animal/'+item.id}}">
           <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">

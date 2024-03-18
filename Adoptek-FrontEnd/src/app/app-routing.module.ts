@@ -19,7 +19,7 @@ import { CoomingSoonComponent } from './layout/cooming-soon/cooming-soon.compone
 
 const routes: Routes = [
   {
-    path: "Ai",
+    path: "ai",
     component: CoomingSoonComponent
   },
   {
