@@ -16,6 +16,7 @@ import { OwnPetCardsComponent } from './components/own-pet-cards/own-pet-cards.c
 import { FavoriteCardsComponent } from './components/favorite-cards/favorite-cards.component';
 import { OthersCardsComponent } from './components/others-cards/others-cards.component';
 import { CoomingSoonComponent } from './layout/cooming-soon/cooming-soon.component';
+import { isAuthGuard } from './guard/is-auth.guard';
 
 const routes: Routes = [
   {
@@ -25,6 +26,7 @@ const routes: Routes = [
   {
     path: "dashboard",
     component: OwnPetsComponent,
+    canActivate: [isAuthGuard],
     children: [
       {
         path: "ownpets",
@@ -68,6 +70,7 @@ const routes: Routes = [
   },
   {
     path: "search",
+    canActivate: [isAuthGuard],
     component: SearchPetComponent,
     children: [
       {
@@ -92,14 +95,17 @@ const routes: Routes = [
   },
   {
     path: 'animal/:id',
+    canActivate: [isAuthGuard],
     component: AnimalPageComponent
   },
   {
     path: "quiz",
+    canActivate: [isAuthGuard],
     component: QuizComponent
   },
   {
     path: "putpet",
+    canActivate: [isAuthGuard],
     component: PutPetComponent
   },
  
