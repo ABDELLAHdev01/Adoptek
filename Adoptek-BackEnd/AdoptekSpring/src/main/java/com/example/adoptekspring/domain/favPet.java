@@ -1,5 +1,6 @@
 package com.example.adoptekspring.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -14,8 +15,10 @@ import java.util.*;
 public class favPet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonIgnore
     private Long id;
 
+    @JsonIgnore
     @OneToOne
     private User user;
 

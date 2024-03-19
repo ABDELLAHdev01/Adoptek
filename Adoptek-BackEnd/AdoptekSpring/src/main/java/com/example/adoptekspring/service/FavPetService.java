@@ -8,5 +8,6 @@ public interface FavPetService {
 
     favPet getFavPet();
 
-    favPet addPetToFav(Long petId);
+
+     favPet addPetToFav(Long petId);
 }

@@ -4,7 +4,9 @@ import com.example.adoptekspring.domain.Pet;
 import com.example.adoptekspring.domain.User;
 import com.example.adoptekspring.domain.favPet;
 import com.example.adoptekspring.repository.FavPetRepository;
+import com.example.adoptekspring.repository.PetRepository;
 import com.example.adoptekspring.service.FavPetService;
+import com.example.adoptekspring.service.PetService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
@@ -15,7 +17,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class FavPetServiceImpl implements FavPetService {
     private final FavPetRepository favPetRepository;
-    private final PetServiceImpl petService;
+    private final PetService petService;
 
 
     public favPet CreateFavPet() {
