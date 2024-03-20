@@ -24,6 +24,8 @@ export class OwnPetCardsComponent implements OnInit {
   
 
   ngOnInit(): void {
+    this.store.dispatch(PetAction.cleanPetsState())
+
     this.store.dispatch(PetAction.getPetsByOwner());
     this.pets$ = this.store.select(petselectot.selectAllPets);
     this.pets$.subscribe((pets: any) => {
@@ -31,6 +33,11 @@ export class OwnPetCardsComponent implements OnInit {
     } );
   }
     
+
+  deletePet(id: any){
+    this.store.dispatch(PetAction.deletePetById({id}));
+    
+  }
   
   
 

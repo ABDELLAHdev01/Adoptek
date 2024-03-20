@@ -6,12 +6,14 @@ import { AuthResponse } from 'src/app/domain/auth-response';
 
 export interface UserState {
     user: AuthResponse | null;
+    userInfo: UserEntity | null;
     loading: boolean;
     error: string | null;
   }
 
   export const initialState: UserState = {
     user: null,
+    userInfo: null,
     loading: false,
     error: null,
   };
@@ -57,5 +59,22 @@ export interface UserState {
         loading: false
     })),
   
+    on(UserActions.getUser, state => ({
+      ...state,
+      loading: true,
+      error: null
+    })),
+
+    on(UserActions.getUserSuccess, (state, { user }) => ({
+
+      ...state,
+      userInfo: user,
+      loading: false
+    })
+    
+       
+      )
+    
 
   );
+

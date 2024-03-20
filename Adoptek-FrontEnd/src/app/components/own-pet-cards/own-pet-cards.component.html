@@ -2,13 +2,13 @@
   <div class="flex justify-end">
     <button routerLink="/putpet" class="bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded"><i class="fa-solid fa-paw"></i> Add Another Pet</button>
   </div>
-    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    <pagination-controls *ngIf="pets.length>0" (pageChange)="p = $event"></pagination-controls>
 
     <div class="container px-10  mx-auto">
 
       <div   class="flex flex-wrap -m-4">
 
-        <div *ngFor="let item of pets |  paginate: { itemsPerPage: 10, currentPage: p}"   class="p-4 md:w-1/4 theimage" routerLink="{{'/animal/'+item.id}}">
+        <div *ngFor="let item of pets |  paginate: { itemsPerPage: 10, currentPage: p}"   class="p-4 md:w-1/4 theimage" >
           <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
             <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="{{'../../../assets/images/'+item.image}}" alt="blog">
              <!-- Card Content -->
@@ -25,11 +25,15 @@
                     <p class="font-bold">Category: <span class="font-normal">{{item.petCategory}}</span></p>
                     <p class="font-bold">Breed: <span class="font-normal">{{item.breed}}</span></p>
                     <p class="font-bold">Age: <span class="font-normal">{{item.age}}</span></p>
+
                 </div>
 
                 <!-- Card Footer -->
                 <footer class="flex items-center justify-between">
-                  
+                  <!-- view button -->
+                  <a href="{{'/animal/'+item.id}}" class="bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">View</a>
+                  <!-- delete button -->
+                  <button (click)="deletePet(item.id)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button>
                   </footer>
             
             </div>

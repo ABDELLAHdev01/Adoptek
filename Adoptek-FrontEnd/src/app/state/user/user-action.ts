@@ -52,3 +52,17 @@ export const checkJwtValidityFailure = createAction(
     '[User] Check Jwt Validity Failure',
     props<{ errorMessage: string }>()
 );
+
+export const getUser = createAction(
+    '[User] Get User'
+);
+
+export const getUserSuccess = createAction(
+    '[User] Get User Success',
+    props<{ user: any }>()
+);
+
+export const getUserFailure = createAction(
+    '[User] Get User Failure',
+    props<{ errorMessage: string }>()
+);

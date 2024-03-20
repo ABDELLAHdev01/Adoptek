@@ -50,6 +50,7 @@ import { FavoriteCardsComponent } from './components/favorite-cards/favorite-car
 import { ToastrModule } from 'ngx-toastr';
 import { OthersCardsComponent } from './components/others-cards/others-cards.component';
 import { CoomingSoonComponent } from './layout/cooming-soon/cooming-soon.component';
+import { AdminDashboardComponent } from './layout/admin-dashboard/admin-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -87,6 +88,7 @@ import { CoomingSoonComponent } from './layout/cooming-soon/cooming-soon.compone
     FavoriteCardsComponent,
     OthersCardsComponent,
     CoomingSoonComponent,
+    AdminDashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -95,7 +97,7 @@ import { CoomingSoonComponent } from './layout/cooming-soon/cooming-soon.compone
     HttpClientModule,
     NgxPaginationModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({user: userReducer ,pets : petReducer}, {}),
+    StoreModule.forRoot({user: userReducer ,pets : petReducer ,}, {}),
     EffectsModule.forRoot([UserEffect,PetEffect]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
   ],

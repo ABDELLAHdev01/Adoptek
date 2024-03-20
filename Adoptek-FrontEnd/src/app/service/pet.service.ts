@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 import { PetEntity } from '../domain/pet-entity';
 import { Observable } from 'rxjs';
+import { FavPet } from '../domain/fav-pet';
 
 @Injectable({
   providedIn: 'root'
@@ -29,10 +30,18 @@ export class PetService {
   }
 
   deletePetById(id: string): Observable<string> {
-    return this._http.delete<string>(this.URL_BASE+'deletePet/'+id);
+    return this._http.get<string>(this.URL_BASE+'deletePet/'+id);
   }
 
   getpetById(id: number): Observable<PetEntity> {
     return this._http.get<PetEntity>(this.URL_BASE+'getpetById/'+id);
+  }
+
+  getFavoritePets(): Observable<any> {
+    return this._http.get<any>(this.URL_BASE+'getFavPets');
+  }
+
+  addpetToFavorites(id:string): Observable<any> {
+    return this._http.get<any>(this.URL_BASE+'addPetToFav/'+id);
   }
 }

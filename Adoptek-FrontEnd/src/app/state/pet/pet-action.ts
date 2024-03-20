@@ -1,4 +1,5 @@
 import { createAction , props } from "@ngrx/store";
+import { FavPet } from "src/app/domain/fav-pet";
 import { PetEntity } from "src/app/domain/pet-entity";
 
 export const addPet = createAction(
@@ -71,7 +72,7 @@ export const deletePetByIdSuccess = createAction(
 
 export const deletePetByIdFailure = createAction(
     '[Pet] Delete Pet By Id Failure',
-    props<{ errorMessage: string }>()
+    props<{ id: string }>()
 );
 
 export const getPetById = createAction(
@@ -87,4 +88,38 @@ export const getPetByIdSuccess = createAction(
 export const getPetByIdFailure = createAction(
     '[Pet] Get Pet By Id Failure',
     props<{ errorMessage: string }>()
+);
+
+export const getFavPets = createAction(
+    '[Pet] Get Fav Pets'
+);
+
+export const getFavPetsSuccess = createAction(
+    '[Pet] Get Fav Pets Success',
+    props<{ pets: PetEntity[] }>()
+);
+
+export const getFavPetsFailure = createAction(
+    '[Pet] Get Fav Pets Failure',
+    props<{ errorMessage: string }>()
+);
+
+export const addPetToFav = createAction(
+    '[Pet] Add Pet To Fav',
+    props<{ id: string }>()
+);
+
+export const addPetToFavSuccess = createAction(
+    '[Pet] Add Pet To Fav Success',
+    props<{ id: string }>()
+);
+
+export const addPetToFavFailure = createAction(
+    '[Pet] Add Pet To Fav Failure',
+    props<{ id: string }>()
+);
+
+export const cleanPetsState = createAction(
+    '[Pet] Clean Pets State'
+
 );

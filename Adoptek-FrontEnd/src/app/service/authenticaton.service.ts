@@ -23,4 +23,12 @@ export class AuthenticatonService {
   register(UserEntity: UserEntity) : Observable<AuthResponse>{
     return this._http.post<AuthResponse>(this.URL_BASE+'register', UserEntity)
   }
+
+  getUser(): Observable<any> {
+    const token = localStorage.getItem('token');
+    if(token == null){
+      throw new Error("No token found");
+    }
+    return this._http.get<any>(this.URL_BASE+'getUserInformations/'+token);
+  }
 }

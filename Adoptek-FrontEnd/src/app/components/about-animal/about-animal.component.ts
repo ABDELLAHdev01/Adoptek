@@ -35,6 +35,10 @@ export class AboutAnimalComponent implements OnInit  {
    
   }
 
+  addToFav(id: string){
+    this.store.dispatch(PetActions.addPetToFav({id}));
+  }
+
 
   ngOnInit(): void {
 

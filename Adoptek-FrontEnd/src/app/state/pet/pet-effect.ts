@@ -54,6 +54,17 @@ export class PetEffect {
     )
     );
 
+    getPetByOwnerSuccessfully$ = createEffect(() => this.actions$.pipe(
+        ofType(PetActions.getPetsByOwnerSuccess),
+    ), {dispatch: false});
+
+    getPetByOwnerFailure$ = createEffect(() => this.actions$.pipe(
+        ofType(PetActions.getPetsByOwnerFailure),
+        tap(() => this.toastr.error('You Dont have any pet')),
+        tap(() => this.router.navigate(['/dashboard']))
+    ), {dispatch: false});
+
+
     petAddSuccessfully$ = createEffect(() => this.actions$.pipe(
         ofType(PetActions.addPetFailure),
         tap(() => this.router.navigate(['/dashboard']))
@@ -73,13 +84,19 @@ export class PetEffect {
         ofType(PetActions.deletePetById),
         mergeMap(action => this.petService.deletePetById(action.id).pipe(
             map(() => PetActions.deletePetByIdSuccess({id: action.id})),
-            catchError((errorMessage) => [PetActions.deletePetByIdFailure({errorMessage})])
+            catchError((errorMessage) => [PetActions.deletePetByIdFailure({id: action.id})])
         ))
     ));
 
     deletePetByIdSuccessfully$ = createEffect(() => this.actions$.pipe(
         ofType(PetActions.deletePetByIdSuccess),
-        tap(() => this.router.navigate(['/dashboard']))
+        tap(() => this.toastr.success('Pet Deleted Successful')),
+    ), {dispatch: false});
+
+    deletePetByIdFailure$ = createEffect(() => this.actions$.pipe(
+        ofType(PetActions.deletePetByIdFailure),
+        tap(() => this.toastr.success('Pet Deleted Successful')),
+        tap(() => this.router.navigate(['/dashboard'])),
     ), {dispatch: false});
 
 
@@ -100,6 +117,51 @@ export class PetEffect {
         ofType(PetActions.getPetByIdFailure),
         tap(() => this.router.navigate(['/dashboard']))
     ), {dispatch: false});
+
+    GetFavoritePets = createEffect(() => this.actions$.pipe(
+        ofType(PetActions.getFavPets),
+        mergeMap(() => this.petService.getFavoritePets().pipe(
+            map(pets => PetActions.getFavPetsSuccess({pets: pets})),
+            catchError((errorMessage) => [PetActions.getFavPetsFailure({errorMessage})])
+        ))
+    ));
+
+    GetFavoritePetsSuccessfully$ = createEffect(() => this.actions$.pipe(
+        ofType(PetActions.getFavPetsSuccess),
+    ), {dispatch: false});
+
+
+    GetFavoritePetsFailure$ = createEffect(() => this.actions$.pipe(
+        ofType(PetActions.getFavPetsFailure),
+        tap(() => this.router.navigate(['/dashboard']))
+    ), {dispatch: false});
+
+    AddPetToFavorite$ = createEffect(() => this.actions$.pipe(
+        ofType(PetActions.addPetToFav),
+        mergeMap(action => this.petService.addpetToFavorites(action.id).pipe(
+            map(() => PetActions.addPetToFavSuccess({id: action.id})),
+            catchError((errorMessage) => [PetActions.addPetToFavFailure({id: action.id})])
+        ))
+    ));
+
+    AddPetToFavoriteSuccessfully$ = createEffect(() => this.actions$.pipe(
+        ofType(PetActions.addPetToFavSuccess),
+        tap(() => this.toastr.success('Pet Added to Favorite Successful')),
+    ), {dispatch: false});
+
+    AddPetToFavoriteFailure$ = createEffect(() => this.actions$.pipe(
+        ofType(PetActions.addPetToFavFailure),
+        tap(() => this.toastr.success('Pet Added to Favorite Successful')),
+        tap(() => this.router.navigate(['/dashboard/favorite'])),
+    ), {dispatch: false});
+
+    CleanPetsstate$ = createEffect(() => this.actions$.pipe(
+        ofType(PetActions.cleanPetsState),
+        tap(() => this.router.navigate(['/dashboard']))
+    ), {dispatch: false});
+
+
+    
 
 
    

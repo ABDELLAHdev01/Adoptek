@@ -106,10 +106,10 @@ export const petReducer = createReducer(
         loading: false
     })),
 
-    on(PetActions.deletePetByIdFailure, (state, { errorMessage }) => ({
+    on(PetActions.deletePetByIdFailure,  (state, { id }) => ({
         ...state,
-        loading: false,
-        error: errorMessage
+        pets: state.pets.filter(pet => pet.id !== Number(id)),
+        loading: false
     })),
 
     on(PetActions.getPetById, state => ({
@@ -123,8 +123,38 @@ export const petReducer = createReducer(
         pets: [pet],
         loading: false
     })),
-
     
+    on(PetActions.getPetByIdFailure, (state, { errorMessage }) => ({
+        ...state,
+        loading: false,
+        error: errorMessage
+    })),
+
+   on(PetActions.getFavPets, state => ({
+        ...state,
+        loading: true,
+        error: null
+    })),
+
+    on(PetActions.getFavPetsSuccess, (state, { pets }) => ({
+        ...state,
+        pets: pets,
+        loading: false
+    })),
+
+    on(PetActions.getFavPetsFailure, (state, { errorMessage }) => ({
+        ...state,
+        loading: false,
+        error: errorMessage
+    })),
+
+    on(PetActions.cleanPetsState, (state) => ({ loading
+        : false, pets: [], error: null })
+    )
+    
+
+
+
 )
 
   

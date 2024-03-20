@@ -12,7 +12,9 @@
 
                
                 <!-- button of call the owner -->
-                <button class="mt-7 bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-full"><i class="fa-solid fa-phone"></i> Call the owner</button>
+                <button data-modal-target="default-modal" data-modal-toggle="default-modal" class="mt-7 bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-full"><i class="fa-solid fa-phone"></i> Call the owner</button>
+                <!-- add to fav button -->
+                <button (click)="addToFav(item.id)" class="mt-7 bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-full"><i class="fa-solid fa-heart"></i> Add to favorite</button>
             </div>
           </div>
           <div class="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
@@ -39,4 +41,23 @@
         </div>
       </div>
     </div>
+
+
+    <!-- Main modal -->
+<div id="default-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+  <div class="relative p-4 w-full max-w-2xl max-h-full">
+      <!-- Modal content -->
+      <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+          
+          <!-- Modal body -->
+          <div class="p-4 md:p-5 space-y-4">
+              <!-- phone number of the owner -->
+              <p class="text-gray-600 dark:text-gray-400">
+                <i class="fa-solid fa-phone"></i>   Phone number : {{item.ownerPhoneNumber}}
+              </p>
+          </div>
+         
+      </div>
+  </div>
+</div>
   </section>

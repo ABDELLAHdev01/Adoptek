@@ -86,4 +86,22 @@ export class UserEffect {
         ofType(UserActions.checkJwtValiditySuccess),
     ), {dispatch: false});
 
+    getUser$ = createEffect(() => this.actions$.pipe(
+        ofType(UserActions.getUser),
+        mergeMap(() => this.authService.getUser().pipe(
+            map(user => UserActions.getUserSuccess({user})),
+            catchError((errorMessage) => [UserActions.loginFailure({errorMessage})])
+        ))
+    ));
+
+    getUserSuccess$ = createEffect(() => this.actions$.pipe(
+        ofType(UserActions.getUserSuccess),
+    ), {dispatch: false});
+
+    getUserFailure$ = createEffect(() => this.actions$.pipe(
+        ofType(UserActions.loginFailure),
+        tap(() => this.router.navigate(['/'])),
+        tap(() => this.localStorageService.clearLocalStorage()),
+    ), {dispatch: false});
+
 }

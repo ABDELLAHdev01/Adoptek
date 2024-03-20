@@ -17,6 +17,7 @@ import { FavoriteCardsComponent } from './components/favorite-cards/favorite-car
 import { OthersCardsComponent } from './components/others-cards/others-cards.component';
 import { CoomingSoonComponent } from './layout/cooming-soon/cooming-soon.component';
 import { isAuthGuard } from './guard/is-auth.guard';
+import { AdminDashboardComponent } from './layout/admin-dashboard/admin-dashboard.component';
 
 const routes: Routes = [
   {
@@ -107,12 +108,17 @@ const routes: Routes = [
     path: "putpet",
     canActivate: [isAuthGuard],
     component: PutPetComponent
+  }, 
+  {
+    path: "admin",
+    component: AdminDashboardComponent
   },
  
   {
     path: "**",
     redirectTo: ""
   },
+ 
 
  
 ];

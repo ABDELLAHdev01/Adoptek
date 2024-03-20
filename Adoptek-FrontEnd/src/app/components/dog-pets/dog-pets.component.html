@@ -7,11 +7,11 @@
         <div   class="flex flex-wrap -m-4">
   
   
-          <div *ngFor="let item of pets |  paginate: { itemsPerPage: 10, currentPage: p}"   class="p-4 md:w-1/4 theimage" routerLink="{{'/animal/'+item.id}}">
+          <a *ngFor="let item of pets |  paginate: { itemsPerPage: 10, currentPage: p}"   class="p-4 md:w-1/4 theimage" href="{{'/animal/'+item.id}}">
             <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
               <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="{{'../../../assets/images/'+item.image}}" alt="blog">
                <!-- Card Content -->
-               <div class="flex-grow flex flex-col p-5">
+               <div class="flex-grow flex flex-col p-5 bg-slate-50">
                   <!-- Card body -->
                   <div class="flex-grow">
                       <!-- Header -->
@@ -28,7 +28,7 @@
               
               </div>
             </div>
-          </div>
+          </a>
           
           
   
@@ -56,6 +56,8 @@
       .theimage:hover{
           transform: scale(1.1);
           transition: transform 0.5s;
+          /* shadow on it */
+          box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
       }
       /* mouse change while howver */
         
