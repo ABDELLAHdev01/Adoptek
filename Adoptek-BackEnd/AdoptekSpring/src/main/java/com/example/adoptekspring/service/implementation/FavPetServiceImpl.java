@@ -36,6 +36,7 @@ public class FavPetServiceImpl implements FavPetService {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         Optional<favPet> fav = favPetRepository.findByUser(user);
+
         return fav.orElseGet(this::CreateFavPet);
     }
 
@@ -52,6 +53,10 @@ public class FavPetServiceImpl implements FavPetService {
     public favPet addPetToFav(Long petId) {
         favPet fav = getFavPet();
         Pet Pet = petService.getpetById(petId);
+//        check if fav alredy has the pet
+        if (fav.getUserFavoritePets().contains(Pet)){
+            throw new RuntimeException("Pet already in your favorite list");
+        }
         fav.getUserFavoritePets().add(Pet);
        return favPetRepository.save(fav);
     }
@@ -59,6 +64,10 @@ public class FavPetServiceImpl implements FavPetService {
     public favPet removePetFromFav(Long petId) {
         favPet fav = getFavPet();
         Pet Pet = petService.getpetById(petId);
+//        check if fav not having the pet
+        if (!fav.getUserFavoritePets().contains(Pet)){
+            throw new RuntimeException("Pet not in your favorite list");
+        }
         fav.getUserFavoritePets().remove(Pet);
         return favPetRepository.save(fav);
     }

@@ -10,4 +10,6 @@ public interface FavPetService {
 
 
      favPet addPetToFav(Long petId);
+
+    favPet removePetFromFav(Long petId);
 }

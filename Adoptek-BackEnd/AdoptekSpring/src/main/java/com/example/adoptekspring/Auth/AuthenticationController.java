@@ -1,8 +1,10 @@
 package com.example.adoptekspring.Auth;
 
 
+import com.example.adoptekspring.domain.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -31,4 +33,12 @@ public class AuthenticationController {
     public Boolean checkJwtValidity(@PathVariable String token){
         return authenticationService.checkIfTokenIsValid(token);
     }
+
+    @GetMapping("getUserInformations/{token}")
+    public User getUserInformations(
+            @PathVariable String token
+    ){
+        return authenticationService.getUserInformations(token);
+    }
+
 }

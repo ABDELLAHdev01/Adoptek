@@ -12,28 +12,6 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './own-pets.component.html',
   styleUrls: ['./own-pets.component.css']
 })
-export class OwnPetsComponent implements OnInit {
-
-  // select user 
-  user$!: Observable<any>;
-  user!: UserEntity;
-
-  constructor(private store: Store<AppState>
-    , private toastr: ToastrService) {
-    this.user$ = this.store.select(userSelector.selectUser);
-    this.user$.subscribe((user: any) => {
-      this.user = user;
-      console.log(user);
-      if(user.roleEnum == "Admin"){
-        this.toastr.error("You are not allowed to see this page");
-      }
-    });
-  
-  }
-
-  ngOnInit(): void {
-    this.store.dispatch(UserActions.getUser());
-  }
-
+export class OwnPetsComponent  {
 
 }

@@ -63,4 +63,9 @@ public class AuthenticationService {
         User user = userRepository.findByEmailNativeQuery(email).orElseThrow();
         return jwtService.isTokenValid(token , user );
     }
+
+    public User getUserInformations(String token) {
+        var email = jwtService.extractUsername(token);
+        return userRepository.findByEmailNativeQuery(email).orElseThrow();
+    }
 }
