@@ -5,6 +5,7 @@ import com.example.adoptekspring.config.JwtService;
 import com.example.adoptekspring.domain.User;
 import com.example.adoptekspring.domain.enm.RoleEnum;
 import com.example.adoptekspring.repository.UserRepository;
+import com.example.adoptekspring.service.AuthorityService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -21,6 +22,7 @@ public class AuthenticationService {
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
+    private final AuthorityService authorityService;
     public AuthenticationResponse register(RegisterRequest registerRequest) {
         if (!userRepository.findByEmail(registerRequest.getEmail()).isEmpty()) {
             throw new RuntimeException("Email already exists");
@@ -75,6 +77,9 @@ public class AuthenticationService {
     }
 
     public User promoteUser(String email) {
+       if (!authorityService.hasRole("Admin")){
+           throw new RuntimeException("You are not authorized to perform this action");
+       }
         User user = userRepository.findByEmailNativeQuery(email).orElseThrow();
         user.setRoleEnum(RoleEnum.Admin);
         return userRepository.save(user);
