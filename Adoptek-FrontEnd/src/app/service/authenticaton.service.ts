@@ -31,4 +31,13 @@ export class AuthenticatonService {
     }
     return this._http.get<any>(this.URL_BASE+'getUserInformations/'+token);
   }
+
+  getAllUsers(): Observable<any> {
+    return this._http.get<any>('http://localhost:8989/api/v1/getAllUsers');
+  }
+  
+
+  promoteUserToAdmin(email: string): Observable<any> {
+    return this._http.post<any>('http://localhost:8989/api/v1/promoteUser/'+email,null);
+  }
 }

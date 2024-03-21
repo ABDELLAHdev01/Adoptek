@@ -7,12 +7,14 @@ import { AuthResponse } from 'src/app/domain/auth-response';
 export interface UserState {
     user: AuthResponse | null;
     userInfo: UserEntity | null;
+    users: UserEntity[];
     loading: boolean;
     error: string | null;
   }
 
   export const initialState: UserState = {
     user: null,
+    users: [],
     userInfo: null,
     loading: false,
     error: null,
@@ -73,7 +75,28 @@ export interface UserState {
     })
     
        
-      )
+      ),
+    on(UserActions.logout, state => ({
+        ...state,
+        user: null,
+        userInfo: null,
+        loading: false,
+        error: null
+      })),
+
+      on(UserActions.getAllUsers, state => ({
+        ...state,
+        loading: true,
+        error: null
+        })),
+
+        on(UserActions.getAllUsersSuccess, (state, { users }) => ({
+          ...state,
+          users,
+          loading: false
+        })),
+
+        
     
 
   );

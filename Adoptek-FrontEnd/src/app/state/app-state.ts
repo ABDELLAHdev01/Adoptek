@@ -4,6 +4,7 @@ import { UserEntity } from "../domain/user-entity";
 
 export interface AppState {
     user: UserEntity;
+    users: UserEntity[];
     authResponse: AuthResponse;
     pet: PetEntity;
     pets: PetEntity[];

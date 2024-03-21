@@ -18,6 +18,8 @@ import { OthersCardsComponent } from './components/others-cards/others-cards.com
 import { CoomingSoonComponent } from './layout/cooming-soon/cooming-soon.component';
 import { isAuthGuard } from './guard/is-auth.guard';
 import { AdminDashboardComponent } from './layout/admin-dashboard/admin-dashboard.component';
+import { UsersTableComponent } from './components/users-table/users-table.component';
+import { PetsTableComponent } from './components/pets-table/pets-table.component';
 
 const routes: Routes = [
   {
@@ -111,7 +113,21 @@ const routes: Routes = [
   }, 
   {
     path: "admin",
-    component: AdminDashboardComponent
+    component: AdminDashboardComponent,
+    children: [
+      {
+        path: "users",
+        component: UsersTableComponent
+      },
+      {
+        path: "pets",
+        component : PetsTableComponent
+      },
+      {
+        path: "**",
+        component: PetsTableComponent
+      }
+    ]
   },
  
   {

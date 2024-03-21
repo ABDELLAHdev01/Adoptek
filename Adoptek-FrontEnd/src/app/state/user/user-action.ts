@@ -66,3 +66,31 @@ export const getUserFailure = createAction(
     '[User] Get User Failure',
     props<{ errorMessage: string }>()
 );
+
+export const getAllUsers = createAction(
+    '[User] Get All Users'
+);
+
+export const getAllUsersSuccess = createAction(
+    '[User] Get All Users Success',
+    props<{ users: UserEntity[] }>()
+);
+
+export const getAllUsersFailure = createAction(
+    '[User] Get All Users Failure',
+    props<{ errorMessage: string }>()
+);
+
+export const promoteUserToAdmin = createAction(
+    '[User] Promote User To Admin',
+    props<{ email: string }>()
+);
+
+export const promoteUserToAdminSuccess = createAction(
+    '[User] Promote User To Admin Success'
+);
+
+export const promoteUserToAdminFailure = createAction(
+    '[User] Promote User To Admin Failure',
+    props<{ errorMessage: string }>()
+);

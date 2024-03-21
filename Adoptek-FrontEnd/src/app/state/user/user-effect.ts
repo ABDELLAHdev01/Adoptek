@@ -104,4 +104,36 @@ export class UserEffect {
         tap(() => this.localStorageService.clearLocalStorage()),
     ), {dispatch: false});
 
+    getAllUsers$ = createEffect(() => this.actions$.pipe(
+        ofType(UserActions.getAllUsers),
+        mergeMap(() => this.authService.getAllUsers().pipe(
+            map(users => UserActions.getAllUsersSuccess({users})),
+            catchError((errorMessage) => [UserActions.getAllUsersFailure({errorMessage})])
+        ))
+    ));
+
+    getAllUsersSuccess$ = createEffect(() => this.actions$.pipe(
+        ofType(UserActions.getAllUsersSuccess),
+    ), {dispatch: false});
+
+   promoteUserToAdmin$ = createEffect(() => this.actions$.pipe(
+        ofType(UserActions.promoteUserToAdmin),
+        mergeMap(action => this.authService.promoteUserToAdmin(action.email).pipe(
+            map(() => UserActions.promoteUserToAdminSuccess()),
+            catchError((errorMessage) => [UserActions.promoteUserToAdminFailure({errorMessage})])
+        ))
+    ));
+
+    promoteUserToAdminSuccess$ = createEffect(() => this.actions$.pipe(
+        ofType(UserActions.promoteUserToAdminSuccess),
+        tap(() => this.toastr.success('Promote Successful')),
+    ), {dispatch: false});
+
+    promoteUserToAdminFailure$ = createEffect(() => this.actions$.pipe(
+        ofType(UserActions.promoteUserToAdminFailure),
+        tap(() => this.toastr.success('Promote Failure')),
+    ), {dispatch: false});
+
+    
+
 }

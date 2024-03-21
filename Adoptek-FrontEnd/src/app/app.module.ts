@@ -51,6 +51,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { OthersCardsComponent } from './components/others-cards/others-cards.component';
 import { CoomingSoonComponent } from './layout/cooming-soon/cooming-soon.component';
 import { AdminDashboardComponent } from './layout/admin-dashboard/admin-dashboard.component';
+import { PetsTableComponent } from './components/pets-table/pets-table.component';
+import { UsersTableComponent } from './components/users-table/users-table.component';
 
 @NgModule({
   declarations: [
@@ -89,6 +91,8 @@ import { AdminDashboardComponent } from './layout/admin-dashboard/admin-dashboar
     OthersCardsComponent,
     CoomingSoonComponent,
     AdminDashboardComponent,
+    PetsTableComponent,
+    UsersTableComponent,
   ],
   imports: [
     BrowserModule,

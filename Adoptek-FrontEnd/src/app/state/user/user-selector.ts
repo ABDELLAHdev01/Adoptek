@@ -9,4 +9,10 @@ export const selectUser = createSelector(
     state => state.userInfo
 );
 
+export const selectAllUsers = createFeatureSelector<AppState, UserState>('user');
+
+export const selectUsers = createSelector(
+    selectAllUsers,
+    state => state.users
+);
 
