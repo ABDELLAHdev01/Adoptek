@@ -11,6 +11,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.*;
 
 
 @Service
@@ -67,5 +68,15 @@ public class AuthenticationService {
     public User getUserInformations(String token) {
         var email = jwtService.extractUsername(token);
         return userRepository.findByEmailNativeQuery(email).orElseThrow();
+    }
+
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
+    }
+
+    public User promoteUser(String email) {
+        User user = userRepository.findByEmailNativeQuery(email).orElseThrow();
+        user.setRoleEnum(RoleEnum.Admin);
+        return userRepository.save(user);
     }
 }
