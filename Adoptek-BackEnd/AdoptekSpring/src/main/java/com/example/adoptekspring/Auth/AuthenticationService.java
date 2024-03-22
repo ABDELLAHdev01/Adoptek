@@ -23,6 +23,7 @@ public class AuthenticationService {
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
     private final AuthorityService authorityService;
+
     public AuthenticationResponse register(RegisterRequest registerRequest) {
         if (!userRepository.findByEmail(registerRequest.getEmail()).isEmpty()) {
             throw new RuntimeException("Email already exists");
@@ -40,7 +41,6 @@ public class AuthenticationService {
                 .country(registerRequest.getCountry())
                 .password(passwordEncoder.encode(registerRequest.getPassword()))
                 .build();
-
 
 
         userRepository.save(user);
@@ -64,7 +64,7 @@ public class AuthenticationService {
     public Boolean checkIfTokenIsValid(String token) {
         var email = jwtService.extractUsername(token);
         User user = userRepository.findByEmailNativeQuery(email).orElseThrow();
-        return jwtService.isTokenValid(token , user );
+        return jwtService.isTokenValid(token, user);
     }
 
     public User getUserInformations(String token) {
@@ -77,9 +77,9 @@ public class AuthenticationService {
     }
 
     public User promoteUser(String email) {
-       if (!authorityService.hasRole("Admin")){
-           throw new RuntimeException("You are not authorized to perform this action");
-       }
+        if (!authorityService.hasRole("Admin")) {
+            throw new RuntimeException("You are not authorized to perform this action");
+        }
         User user = userRepository.findByEmailNativeQuery(email).orElseThrow();
         user.setRoleEnum(RoleEnum.Admin);
         return userRepository.save(user);

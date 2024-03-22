@@ -1,13 +1,12 @@
 package com.example.adoptekspring.service.implementation;
 
 import com.example.adoptekspring.domain.Pet;
+import com.example.adoptekspring.domain.User;
 import com.example.adoptekspring.domain.enm.PetCategory;
 import com.example.adoptekspring.repository.PetRepository;
 import com.example.adoptekspring.service.PetService;
-import com.example.adoptekspring.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
-import com.example.adoptekspring.domain.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -45,7 +44,6 @@ public class PetServiceImpl implements PetService {
     public void deletePet(Long id) {
         petRepository.deleteById(id);
     }
-
 
 
     @Override

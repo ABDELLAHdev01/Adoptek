@@ -16,14 +16,14 @@ public class userController {
 
 
     @GetMapping("getAllUsers")
-    public ResponseEntity<List<User>> getAllUsers(){
+    public ResponseEntity<List<User>> getAllUsers() {
         return ResponseEntity.ok(authenticationService.getAllUsers());
     }
 
     @PostMapping("promoteUser/{email}")
     public ResponseEntity<User> promoteUser(
             @PathVariable String email
-    ){
+    ) {
         return ResponseEntity.ok(authenticationService.promoteUser(email));
     }
 }

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import java.util.*;
 
 @RestController
@@ -16,7 +17,6 @@ import java.util.*;
 @RequiredArgsConstructor
 public class favController {
     private final FavPetService favPetService;
-
 
 
     @GetMapping("/getFavPets")
@@ -30,7 +30,7 @@ public class favController {
             favPetService.addPetToFav(petId);
             return ResponseEntity.ok("Pet added to your favorite list successfully");
 
-        }catch (Exception e){
+        } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
@@ -41,11 +41,10 @@ public class favController {
             favPetService.removePetFromFav(petId);
             return ResponseEntity.ok("Pet removed from your favorite list successfully");
 
-        }catch (Exception e){
+        } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
-
 
 
 }

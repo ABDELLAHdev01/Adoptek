@@ -53,10 +53,10 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public List<Article> getAllArticles() {
-    List<Article> articles = articleRepository.findAll();
-    if (articles.isEmpty()) {
-        throw new RuntimeException("No articles found");
-    }
-    return articles;
+        List<Article> articles = articleRepository.findAll();
+        if (articles.isEmpty()) {
+            throw new RuntimeException("No articles found");
+        }
+        return articles;
     }
 }

@@ -31,7 +31,6 @@ public class GlobalExceptionHandler {
             MethodArgumentNotValidException exception, HttpServletRequest request) {
 
 
-
         Map<String, List<String>> errorDetails = exception.getBindingResult()
                 .getFieldErrors()
                 .stream()
@@ -47,7 +46,6 @@ public class GlobalExceptionHandler {
 
         return ResponseEntity.badRequest().body(errorResponse);
     }
-
 
 
     @ExceptionHandler(NoSuchElementException.class)
@@ -86,6 +84,7 @@ public class GlobalExceptionHandler {
 
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorSimpleResponse);
     }
+
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<ErrorResponseSimpleFormat> handleIllegalArgumentException(
             IllegalArgumentException exception, HttpServletRequest request) {
