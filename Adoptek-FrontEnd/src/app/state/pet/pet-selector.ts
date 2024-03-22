@@ -2,32 +2,26 @@ import { createSelector, createFeatureSelector } from '@ngrx/store';
 import { AppState } from '../app-state';
 import { PetState } from './pet-reducer';
 
-export const selectPetFeature = createFeatureSelector<AppState, PetState>('pets');
+export const selectPetFeature = createFeatureSelector<AppState, PetState>(
+  'pets'
+);
 
 export const selectAllPets = createSelector(
-    selectPetFeature,
-    state => state.pets
+  selectPetFeature,
+  (state) => state.pets
 );
 
 export const selectPetLoading = createSelector(
-    selectPetFeature,
-    state => state.loading
+  selectPetFeature,
+  (state) => state.loading
 );
 
 export const selectPetError = createSelector(
-    selectPetFeature,
-    state => state.error
+  selectPetFeature,
+  (state) => state.error
 );
 
-export const selectPetById = (id: number) => createSelector(
-    selectAllPets,
-    (pets) => {
-        return pets.find(pet => pet.id === id);
-    }
-);
-
-
-
-
-
-
+export const selectPetById = (id: number) =>
+  createSelector(selectAllPets, (pets) => {
+    return pets.find((pet) => pet.id === id);
+  });

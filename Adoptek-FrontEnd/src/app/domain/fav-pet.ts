@@ -1,6 +1,5 @@
-import { PetEntity } from "./pet-entity";
+import { PetEntity } from './pet-entity';
 
 export interface FavPet {
-
-    userFavoritePets: PetEntity[];
+  userFavoritePets: PetEntity[];
 }

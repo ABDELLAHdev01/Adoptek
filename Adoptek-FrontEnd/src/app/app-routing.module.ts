@@ -23,124 +23,115 @@ import { PetsTableComponent } from './components/pets-table/pets-table.component
 
 const routes: Routes = [
   {
-    path: "ai",
-    component: CoomingSoonComponent
+    path: 'ai',
+    component: CoomingSoonComponent,
   },
   {
-    path: "dashboard",
+    path: 'dashboard',
     component: OwnPetsComponent,
     canActivate: [isAuthGuard],
     children: [
       {
-        path: "ownpets",
-        component: OwnPetCardsComponent
+        path: 'ownpets',
+        component: OwnPetCardsComponent,
       },
       {
-        path: "favorite",
-        component: FavoriteCardsComponent
+        path: 'favorite',
+        component: FavoriteCardsComponent,
       },
       {
-        path: "**",
-        component: OwnPetCardsComponent
-      }
-    ]
+        path: '**',
+        component: OwnPetCardsComponent,
+      },
+    ],
   },
   {
     path: '',
-    component: HomePageComponent
+    component: HomePageComponent,
   },
   {
-    path: "auth",
+    path: 'auth',
     component: AuthComponent,
     children: [
-      
       {
-        path: "login",
-        component: LoginFormComponent
-      }
-      ,
+        path: 'login',
+        component: LoginFormComponent,
+      },
       {
-        path: "register",
-        component: RegisterFormComponent
-      }
-      ,
+        path: 'register',
+        component: RegisterFormComponent,
+      },
       {
-        path: "**",
-        redirectTo: "login"
-
-      }
-    ]
+        path: '**',
+        redirectTo: 'login',
+      },
+    ],
   },
   {
-    path: "search",
+    path: 'search',
     canActivate: [isAuthGuard],
     component: SearchPetComponent,
     children: [
       {
-        path: "dog",
-        component: DogPetsComponent
-        
+        path: 'dog',
+        component: DogPetsComponent,
       },
       {
-        path: "cat",
-        component: CatPETComponent
+        path: 'cat',
+        component: CatPETComponent,
       },
       {
-        path: "others",
-        component: OthersCardsComponent
+        path: 'others',
+        component: OthersCardsComponent,
       },
       {
-        path: "**",
-        component: PetcardsComponent
-      }
- ] 
-
+        path: '**',
+        component: PetcardsComponent,
+      },
+    ],
   },
   {
     path: 'animal/:id',
     canActivate: [isAuthGuard],
-    component: AnimalPageComponent
+    component: AnimalPageComponent,
   },
   {
-    path: "quiz",
+    path: 'quiz',
     canActivate: [isAuthGuard],
-    component: QuizComponent
+    component: QuizComponent,
   },
   {
-    path: "putpet",
+    path: 'putpet',
     canActivate: [isAuthGuard],
-    component: PutPetComponent
-  }, 
+    component: PutPetComponent,
+  },
   {
-    path: "admin",
+    path: 'admin',
     component: AdminDashboardComponent,
     children: [
       {
-        path: "users",
-        component: UsersTableComponent
+        path: 'users',
+        component: UsersTableComponent,
       },
       {
-        path: "pets",
-        component : PetsTableComponent
+        path: 'pets',
+        component: PetsTableComponent,
       },
       {
-        path: "**",
-        component: PetsTableComponent
-      }
-    ]
+        path: '**',
+        component: PetsTableComponent,
+      },
+    ],
   },
- 
-  {
-    path: "**",
-    redirectTo: ""
-  },
- 
 
- 
+  {
+    path: '**',
+    redirectTo: '',
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

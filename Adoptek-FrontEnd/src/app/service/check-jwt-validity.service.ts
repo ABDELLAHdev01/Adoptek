@@ -4,15 +4,14 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CheckJwtValidityService {
+  private readonly URL_BASE = environment.api + '/auth/';
 
-  private readonly URL_BASE = environment.api+"/auth/";
+  constructor(private _http: HttpClient) {}
 
-  constructor(private _http : HttpClient) {}
-
-  checkJwtValidity(token:string) : Observable<boolean>{
-    return this._http.get<boolean>(this.URL_BASE+`checkJwtValidity/${token}`)
+  checkJwtValidity(token: string): Observable<boolean> {
+    return this._http.get<boolean>(this.URL_BASE + `checkJwtValidity/${token}`);
   }
 }

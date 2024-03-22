@@ -3,10 +3,9 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-quiz',
   templateUrl: './quiz.component.html',
-  styleUrls: ['./quiz.component.css']
+  styleUrls: ['./quiz.component.css'],
 })
 export class QuizComponent {
-
   quiz: {
     petCategory: string;
     age: number;
@@ -32,7 +31,6 @@ export class QuizComponent {
     location: '',
     health: '',
     aggressionLevel: '',
-    color: ''
+    color: '',
   };
-
 }

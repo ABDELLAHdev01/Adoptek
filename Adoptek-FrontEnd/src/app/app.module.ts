@@ -2,7 +2,6 @@ import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthComponent } from './layout/auth/auth.component';
@@ -42,7 +41,7 @@ import { JwthelperInterceptor } from './interceptor/jwthelper.interceptor';
 import { DogPetsComponent } from './components/dog-pets/dog-pets.component';
 import { CatPETComponent } from './components/cat-pet/cat-pet.component';
 import { petReducer } from './state/pet/pet-reducer';
-import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { OwnPetsComponent } from './layout/own-pets/own-pets.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { OwnPetCardsComponent } from './components/own-pet-cards/own-pet-cards.component';
@@ -101,11 +100,13 @@ import { UsersTableComponent } from './components/users-table/users-table.compon
     HttpClientModule,
     NgxPaginationModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({user: userReducer ,pets : petReducer ,}, {}),
-    EffectsModule.forRoot([UserEffect,PetEffect]),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
+    StoreModule.forRoot({ user: userReducer, pets: petReducer }, {}),
+    EffectsModule.forRoot([UserEffect, PetEffect]),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
   ],
-  providers: [ { provide: HTTP_INTERCEPTORS, useClass: JwthelperInterceptor, multi: true }],
-  bootstrap: [AppComponent]
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwthelperInterceptor, multi: true },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

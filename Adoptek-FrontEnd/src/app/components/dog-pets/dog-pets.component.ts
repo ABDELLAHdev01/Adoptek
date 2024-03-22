@@ -1,41 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import { PetEntity } from 'src/app/domain/pet-entity';
-import * as PetAction from 'src/app/state/pet/pet-action'
+import * as PetAction from 'src/app/state/pet/pet-action';
 import { Store, select } from '@ngrx/store';
-import { AppState } from 'src/app/state/app-state'; 
+import { AppState } from 'src/app/state/app-state';
 import { Observable } from 'rxjs';
 import * as petselectot from 'src/app/state/pet/pet-selector';
 import { ToastrService } from 'ngx-toastr';
 
-
 @Component({
   selector: 'app-dog-pets',
   templateUrl: './dog-pets.component.html',
-  styleUrls: ['./dog-pets.component.css']
+  styleUrls: ['./dog-pets.component.css'],
 })
-export class DogPetsComponent implements OnInit{
-
+export class DogPetsComponent implements OnInit {
   p: number = 1;
 
   pets$!: Observable<PetEntity[]>;
-  pets:any;
+  pets: any;
 
-  constructor(private store: Store<AppState>
-    , private toastr: ToastrService) {
-    
-  }
-
-  
+  constructor(private store: Store<AppState>, private toastr: ToastrService) {}
 
   ngOnInit(): void {
-    this.store.dispatch(PetAction.getPetsByCategory({ category: "DOG"}));
+    this.store.dispatch(PetAction.getPetsByCategory({ category: 'DOG' }));
     this.pets$ = this.store.select(petselectot.selectAllPets);
     this.pets$.subscribe((pets: any) => {
       this.pets = pets;
       console.log(pets);
-      
-    } );
-    
-    
-
-  }}
+    });
+  }
+}

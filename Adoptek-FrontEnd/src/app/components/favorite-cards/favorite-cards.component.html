@@ -1,73 +1,90 @@
 <section class="text-gray-600 body-font mt-20">
-    
-      <pagination-controls *ngIf="pets.length>0" (pageChange)="p = $event"></pagination-controls>
-  
-      <div class="container px-10  mx-auto">
-  
-        <div   class="flex flex-wrap -m-4">
-  
-          <div *ngFor="let item of pets |  paginate: { itemsPerPage: 10, currentPage: p}"   class="p-4 md:w-1/4 theimage" >
-            <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
-              <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="{{'../../../assets/images/'+item.image}}" alt="blog">
-               <!-- Card Content -->
-               <div class="flex-grow flex flex-col p-5">
-                  <!-- Card body -->
-                  <div class="flex-grow">
-                      <!-- Header -->
-                      <header class="mb-3">
-                          <a class="block focus:outline-none focus-visible:ring-2">
-                              <h3 class="text-[22px] text-gray-900 font-extrabold leading-snug">Name: {{item.name}}</h3>
-                          </a>
-                      </header>
-                      <!-- Content -->
-                      <p class="font-bold">Category: <span class="font-normal">{{item.petCategory}}</span></p>
-                      <p class="font-bold">Breed: <span class="font-normal">{{item.breed}}</span></p>
-                      <p class="font-bold">Age: <span class="font-normal">{{item.age}}</span></p>
-  
-                  </div>
-  
-                  <!-- Card Footer -->
-                  <footer class="flex items-center justify-between">
-                    <!-- view button -->
-                    <a href="{{'/animal/'+item.id}}" class="bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">View</a>
-                    <!-- delete button -->
-                    <!-- <button (click)="deletePet(item.id)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button> -->
-                    </footer>
-              
-              </div>
+  <pagination-controls
+    *ngIf="pets.length > 0"
+    (pageChange)="p = $event"
+  ></pagination-controls>
+
+  <div class="container px-10 mx-auto">
+    <div class="flex flex-wrap -m-4">
+      <div
+        *ngFor="
+          let item of pets | paginate : { itemsPerPage: 10, currentPage: p }
+        "
+        class="p-4 md:w-1/4 theimage"
+      >
+        <div
+          class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden"
+        >
+          <img
+            class="lg:h-48 md:h-36 w-full object-cover object-center"
+            src="{{ '../../../assets/images/' + item.image }}"
+            alt="blog"
+          />
+          <!-- Card Content -->
+          <div class="flex-grow flex flex-col p-5">
+            <!-- Card body -->
+            <div class="flex-grow">
+              <!-- Header -->
+              <header class="mb-3">
+                <a class="block focus:outline-none focus-visible:ring-2">
+                  <h3
+                    class="text-[22px] text-gray-900 font-extrabold leading-snug"
+                  >
+                    Name: {{ item.name }}
+                  </h3>
+                </a>
+              </header>
+              <!-- Content -->
+              <p class="font-bold">
+                Category:
+                <span class="font-normal">{{ item.petCategory }}</span>
+              </p>
+              <p class="font-bold">
+                Breed: <span class="font-normal">{{ item.breed }}</span>
+              </p>
+              <p class="font-bold">
+                Age: <span class="font-normal">{{ item.age }}</span>
+              </p>
             </div>
+
+            <!-- Card Footer -->
+            <footer class="flex items-center justify-between">
+              <!-- view button -->
+              <a
+                href="{{ '/animal/' + item.id }}"
+                class="bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded"
+                >View</a
+              >
+              <!-- delete button -->
+              <!-- <button (click)="deletePet(item.id)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button> -->
+            </footer>
           </div>
-          
-          
-  
         </div>
       </div>
-    </section>
-    <div class="mt-8 content-center justify-center">
-  
     </div>
-  
-    <style>
-      .current{
-          background-color: #d37202;
-          color: white;
-      }
-    
-      .image{
-          border-radius: 50%;
-          /* shadow the image */
-          box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-        
-  
-      }
-        /* animate theimage class while hover */
-      .theimage:hover{
-          transform: scale(1.1);
-          transition: transform 0.5s;
-      }
-      /* mouse change while howver */
-        
-      .theimage:hover{
-          cursor: pointer;
-      }
-  </style>
+  </div>
+</section>
+<div class="mt-8 content-center justify-center"></div>
+
+<style>
+  .current {
+    background-color: #d37202;
+    color: white;
+  }
+
+  .image {
+    border-radius: 50%;
+    /* shadow the image */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  }
+  /* animate theimage class while hover */
+  .theimage:hover {
+    transform: scale(1.1);
+    transition: transform 0.5s;
+  }
+  /* mouse change while howver */
+
+  .theimage:hover {
+    cursor: pointer;
+  }
+</style>

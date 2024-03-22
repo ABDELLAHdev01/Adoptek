@@ -6,42 +6,44 @@ import { Observable } from 'rxjs';
 import { FavPet } from '../domain/fav-pet';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PetService {
-  private readonly URL_BASE = environment.api+"/";
+  private readonly URL_BASE = environment.api + '/';
 
-  constructor(private _http : HttpClient) {}
+  constructor(private _http: HttpClient) {}
 
-  addPet(pet:FormData):Observable<any> {
-    return this._http.post<any>(this.URL_BASE+'addPet', pet)
+  addPet(pet: FormData): Observable<any> {
+    return this._http.post<any>(this.URL_BASE + 'addPet', pet);
   }
 
-  getPets():Observable<PetEntity[]> {
-    return this._http.get<PetEntity[]>(this.URL_BASE+'getAllPets');
+  getPets(): Observable<PetEntity[]> {
+    return this._http.get<PetEntity[]>(this.URL_BASE + 'getAllPets');
   }
 
   getPetsByCategory(category: string): Observable<PetEntity[]> {
-    return this._http.get<PetEntity[]>(this.URL_BASE+'getPetsByCategory?category='+category);
+    return this._http.get<PetEntity[]>(
+      this.URL_BASE + 'getPetsByCategory?category=' + category
+    );
   }
 
   getPetsByOwner(): Observable<PetEntity[]> {
-    return this._http.get<PetEntity[]>(this.URL_BASE+'getPetsByOwner');
+    return this._http.get<PetEntity[]>(this.URL_BASE + 'getPetsByOwner');
   }
 
   deletePetById(id: string): Observable<string> {
-    return this._http.get<string>(this.URL_BASE+'deletePet/'+id);
+    return this._http.get<string>(this.URL_BASE + 'deletePet/' + id);
   }
 
   getpetById(id: number): Observable<PetEntity> {
-    return this._http.get<PetEntity>(this.URL_BASE+'getpetById/'+id);
+    return this._http.get<PetEntity>(this.URL_BASE + 'getpetById/' + id);
   }
 
   getFavoritePets(): Observable<any> {
-    return this._http.get<any>(this.URL_BASE+'getFavPets');
+    return this._http.get<any>(this.URL_BASE + 'getFavPets');
   }
 
-  addpetToFavorites(id:string): Observable<any> {
-    return this._http.get<any>(this.URL_BASE+'addPetToFav/'+id);
+  addpetToFavorites(id: string): Observable<any> {
+    return this._http.get<any>(this.URL_BASE + 'addPetToFav/' + id);
   }
 }

@@ -11,36 +11,27 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-about-animal',
   templateUrl: './about-animal.component.html',
-  styleUrls: ['./about-animal.component.css']
+  styleUrls: ['./about-animal.component.css'],
 })
-export class AboutAnimalComponent implements OnInit  {
-
+export class AboutAnimalComponent implements OnInit {
   p: number = 1;
   pets$!: Observable<any>;
-  pet!:PetEntity;
+  pet!: PetEntity;
   // get id from route
 
-  private route = inject(ActivatedRoute)
+  private route = inject(ActivatedRoute);
 
-
-  constructor(
-    private store: Store<AppState>,
-    private toastr: ToastrService
-  ) {
+  constructor(private store: Store<AppState>, private toastr: ToastrService) {
     // get pet by id
     const number = Number(this.route.snapshot.paramMap.get('id'));
 
     this.store.dispatch(PetActions.getPetById({ id: number }));
     this.pets$ = this.store.select(petselectot.selectAllPets);
-   
   }
 
-  addToFav(id: string){
-    this.store.dispatch(PetActions.addPetToFav({id}));
+  addToFav(id: string) {
+    this.store.dispatch(PetActions.addPetToFav({ id }));
   }
 
-
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 }

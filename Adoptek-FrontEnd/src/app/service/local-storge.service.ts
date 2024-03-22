@@ -1,18 +1,17 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LocalStorgeService {
+  constructor() {}
 
-  constructor() { }
-
-  setToken(token:string){
+  setToken(token: string) {
     localStorage.setItem('token', token);
   }
 
   getToken(): any {
-     return localStorage.getItem('token'); 
+    return localStorage.getItem('token');
   }
 
   getUserInfo() {
@@ -23,9 +22,7 @@ export class LocalStorgeService {
     localStorage.setItem('userInfo', JSON.stringify(userInfo));
   }
 
-
   clearLocalStorage() {
     localStorage.clear();
   }
-
 }

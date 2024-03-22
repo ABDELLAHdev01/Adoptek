@@ -1,11 +1,11 @@
-import { AuthResponse } from "../domain/auth-response";
-import { PetEntity } from "../domain/pet-entity";
-import { UserEntity } from "../domain/user-entity";
+import { AuthResponse } from '../domain/auth-response';
+import { PetEntity } from '../domain/pet-entity';
+import { UserEntity } from '../domain/user-entity';
 
 export interface AppState {
-    user: UserEntity;
-    users: UserEntity[];
-    authResponse: AuthResponse;
-    pet: PetEntity;
-    pets: PetEntity[];
+  user: UserEntity;
+  users: UserEntity[];
+  authResponse: AuthResponse;
+  pet: PetEntity;
+  pets: PetEntity[];
 }

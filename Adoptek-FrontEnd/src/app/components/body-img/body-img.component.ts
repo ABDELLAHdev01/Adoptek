@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import * as PetAction from '../../state/pet/pet-action'
+import * as PetAction from '../../state/pet/pet-action';
 import { PetEntity } from 'src/app/domain/pet-entity';
 import { AppState } from 'src/app/state/app-state';
 import { Store } from '@ngrx/store';
@@ -9,18 +9,20 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-body-img',
   templateUrl: './body-img.component.html',
-  styleUrls: ['./body-img.component.css']
+  styleUrls: ['./body-img.component.css'],
 })
 export class BodyImgComponent implements OnInit {
-  pet!: PetEntity ;
+  pet!: PetEntity;
   formAddPet!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private router: Router,private store : Store<AppState>,
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private store: Store<AppState>,
     private toastr: ToastrService
-    ) { }
+  ) {}
 
   ngOnInit(): void {
-
     this.formAddPet = this.formBuilder.group({
       name: ['', Validators.required],
       petCategory: ['', Validators.required],
@@ -35,7 +37,7 @@ export class BodyImgComponent implements OnInit {
       location: ['', Validators.required],
       health: ['', Validators.required],
       aggressionLevel: ['', Validators.required],
-      color: ['', Validators.required]
+      color: ['', Validators.required],
     });
   }
   selectedFile: File | null = null; // Add this line
@@ -62,22 +64,13 @@ export class BodyImgComponent implements OnInit {
 
       // dispatch action with form data instead of form value
       console.log(formData);
-      this.store.dispatch(PetAction.addPet({pet: formData}));
+      this.store.dispatch(PetAction.addPet({ pet: formData }));
     }
   }
 
-
-
-
-
-
-
-
   count: number = 0;
 
-  addone(){
-    this.count ++;
+  addone() {
+    this.count++;
   }
-
-
 }
