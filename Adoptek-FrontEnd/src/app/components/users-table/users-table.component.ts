@@ -26,6 +26,11 @@ export class UsersTableComponent implements OnInit {
     this.users$.subscribe((users: any) => {
       this.users = users.users;
       console.log(this.users);
+
+  
+
+      // Remove all admins from this.users
+      this.users = this.users.filter(user => user.roleEnum !== "Admin");
     });
 
   
@@ -34,6 +39,8 @@ export class UsersTableComponent implements OnInit {
 
   promoteUserToAdmin(email: string){
     this.store.dispatch(UserActions.promoteUserToAdmin({email}));
+    this.users = this.users.filter(user => user.email !== email);
+
   }
 
 
