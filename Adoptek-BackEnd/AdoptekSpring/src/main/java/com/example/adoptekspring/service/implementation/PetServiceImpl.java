@@ -21,7 +21,9 @@ public class PetServiceImpl implements PetService {
     public Pet createPet(Pet pet) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         pet.setOwner(user);
-        pet.setOwnerPhoneNumber(user.getPhoneNumber());
+        if (pet.getOwnerPhoneNumber() == null){
+            pet.setOwnerPhoneNumber(user.getPhoneNumber());
+        }
         return petRepository.save(pet);
     }
 

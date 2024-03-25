@@ -3,6 +3,7 @@ package com.example.adoptekspring.config;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
@@ -22,7 +23,7 @@ public class JwtService {
         return extractClaim(jwt, Claims::getSubject);
     }
 
-    private Claims extractAllClaims(String token) {
+    Claims extractAllClaims(String token) {
         return Jwts
                 .parserBuilder()
                 .setSigningKey(SECRET_KEY)
@@ -31,7 +32,7 @@ public class JwtService {
                 .getBody();
     }
 
-    private String generateToken(
+    String generateToken(
             Map<String, Object> extraClaims,
             UserDetails userDetails
     ) {
@@ -59,11 +60,12 @@ public class JwtService {
         return (username.equals(userDetails.getUsername())) && !isTokenExpired(token);
     }
 
-    private boolean isTokenExpired(String token) {
+    boolean isTokenExpired(String token) {
         return extractExpiration(token).before(new Date());
     }
 
     private Date extractExpiration(String token) {
         return extractClaim(token, Claims::getExpiration);
     }
+
 }
